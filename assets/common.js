@@ -25,10 +25,28 @@
   });
 
   /* ---- quiz: open / close all ---- */
-  function setAll(open){document.querySelectorAll('details.q').forEach(function(d){d.open=open})}
+  /* button text: long label on wide screens, short one on phones (see .toggle .l/.s) */
+  function label(b,long,short){b.innerHTML='<span class="l">'+long+'</span><span class="s">'+short+'</span>'}
+  var qs=[].slice.call(document.querySelectorAll('details.q'));
+  var ab=document.getElementById('answersBtn');
+  function allOpen(){return qs.length>0&&qs.every(function(d){return d.open})}
+  /* header toggle shows what the next click does: open all until every answer is open, then close all */
+  function syncAnswers(){
+    if(!ab)return;
+    var on=allOpen();
+    ab.setAttribute('aria-pressed',on?'true':'false');
+    label(ab,on?'정답 모두 접기':'정답 모두 펼치기','정답');
+  }
+  function setAll(open){qs.forEach(function(d){d.open=open});syncAnswers()}
   var oa=document.getElementById('openAll'),ca=document.getElementById('closeAll');
   if(oa)oa.addEventListener('click',function(){setAll(true)});
   if(ca)ca.addEventListener('click',function(){setAll(false)});
+  if(ab){
+    if(!qs.length)ab.hidden=true;
+    ab.addEventListener('click',function(){setAll(!allOpen())});
+    document.addEventListener('toggle',function(e){if(e.target.matches&&e.target.matches('details.q'))syncAnswers()},true);
+    syncAnswers();
+  }
   window.addEventListener('beforeprint',function(){setAll(true)});
 
   if(!bar)return;
@@ -93,7 +111,7 @@
   function setBlank(on){
     document.body.classList.toggle('blank',on);
     btn.setAttribute('aria-pressed',on?'true':'false');
-    btn.textContent=on?'빈칸 모드 켜짐':'빈칸 모드';
+    label(btn,on?'빈칸 모드 켜짐':'빈칸 모드','빈칸');
     document.querySelectorAll('.k').forEach(function(k){
       k.classList.remove('show');
       if(on){k.setAttribute('tabindex','0');k.setAttribute('role','button');}

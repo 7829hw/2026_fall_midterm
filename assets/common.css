@@ -237,3 +237,10 @@ a{color:var(--green)}
 .tip ul,.exam ul,.trap ul{margin:6px 0 2px}
 footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:14px;margin-top:20px}
 @media print{.icon,.qbar{display:none}}
+/* header toggles: full label normally, short label on phones */
+.toggle .s{display:none}
+@media (max-width:600px){
+  .bar .toggle{padding:5px 12px}
+  .bar .toggle .l{display:none}
+  .bar .toggle .s{display:inline}
+}
