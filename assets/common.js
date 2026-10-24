@@ -29,6 +29,7 @@
   var oa=document.getElementById('openAll'),ca=document.getElementById('closeAll');
   if(oa)oa.addEventListener('click',function(){setAll(true)});
   if(ca)ca.addEventListener('click',function(){setAll(false)});
+  window.addEventListener('beforeprint',function(){setAll(true)});
 
   if(!bar)return;
 

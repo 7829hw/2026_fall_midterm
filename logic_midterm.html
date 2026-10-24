@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C232A" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
+<title>논리와 비판적 사고 중간고사 총정리</title>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="assets/common.css">
+<style>
+/* 논리와 비판적 사고 전용: 이 노트의 색 이름을 공통 색에 연결 */
+:root{
+  --accent:var(--green); --accent-soft:var(--green-soft);
+  --ok:var(--green); --ok-soft:var(--green-soft); --no:var(--warn); --no-soft:var(--warn-soft);
+  --hatch:var(--muted); --hatch-acc:var(--warn); --x:var(--warn);
+}
+h2 .tag{margin-left:6px;vertical-align:4px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;letter-spacing:.02em;line-height:1.5}
+.tag.hot{background:var(--exam-soft);color:var(--exam)}
+.tag.must{background:var(--green-soft);color:var(--green)}
+/* callouts in the same shape as .tip / .exam / .trap */
+.box{padding:10px 14px;margin:12px 0;font-size:15px;border-left:4px solid var(--line);background:var(--surface)}
+.box>:first-child{margin-top:0}.box>:last-child{margin-bottom:0}
+.box .bt{font-weight:700;display:block;margin-bottom:2px}
+.box.def{border:1px solid var(--line);border-left:4px solid var(--ink)}
+.box.tip .bt{color:var(--green)}
+.box.warn{background:var(--warn-soft);border-left-color:var(--warn)}
+.box.warn .bt{color:var(--warn)}
+.box.skip{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--muted)}
+.box.skip .bt{color:var(--muted)}
+.easy{color:var(--muted);font-size:15px}
+.tt td,.tt th{text-align:center;font-variant-numeric:tabular-nums;padding:5px 8px}
+.tt .hl{background:var(--green-soft)}
+.tt .bad{background:var(--warn-soft)}
+.sym{background:var(--green-soft);padding:1px 5px;border-radius:4px;font-size:.92em;white-space:nowrap}
+.arg{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin:8px 0;font-size:15px}
+.arg div{padding:1px 0}
+.arg .c{border-top:1.5px solid var(--ink);margin-top:4px;padding-top:4px;font-weight:700}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.grid2>.box,.grid3>.box{margin:0}
+@media (max-width:640px){.grid2,.grid3{grid-template-columns:minmax(0,1fr)}}
+figure{margin:12px 0;text-align:center}
+figure svg{max-width:100%;height:auto}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:4px}
+.fig-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px}
+.fig-card figure{margin:0}
+/* Venn */
+svg.venn{width:100%;max-width:300px}
+.v-bg{fill:none;stroke:var(--line)}
+.v-c{fill:none;stroke:var(--ink);stroke-width:1.6}
+.v-lab{fill:var(--ink);font-size:14px;font-weight:700;text-anchor:middle}
+.v-num{fill:var(--muted);font-size:12px;text-anchor:middle}
+.v-x{fill:var(--x);font-size:20px;font-weight:800;text-anchor:middle;font-family:Arial,sans-serif}
+.v-xl{fill:var(--x);font-size:11px;font-weight:700;text-anchor:middle}
+/* generic diagram */
+svg.dg{width:100%;height:auto}
+svg.dg text{fill:var(--ink);font-size:13px}
+svg.dg .mut{fill:var(--muted)}
+svg.dg .acc{fill:var(--accent);stroke:none}
+svg.dg .warn{fill:var(--exam)}
+svg.dg .okc{fill:var(--ok)}
+svg.dg .noc{fill:var(--no)}
+svg.dg .st{stroke:var(--ink);fill:none;stroke-width:1.5}
+svg.dg .st-acc{stroke:var(--accent);fill:none;stroke-width:2}
+svg.dg .st-mut{stroke:var(--muted);fill:none;stroke-width:1.3}
+svg.dg .st-no{stroke:var(--no);fill:none;stroke-width:2}
+svg.dg .st-ok{stroke:var(--ok);fill:none;stroke-width:2}
+svg.dg .fill-acc{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+svg.dg .fill-paper{fill:var(--surface);stroke:var(--ink);stroke-width:1.4}
+svg.dg .fill-ok{fill:var(--ok-soft);stroke:var(--ok);stroke-width:1.5}
+svg.dg .fill-no{fill:var(--no-soft);stroke:var(--no);stroke-width:1.5}
+svg.dg .fill-warn{fill:var(--exam-soft);stroke:var(--exam);stroke-width:1.5}
+svg.dg .b{font-weight:700}
+svg.dg .mid{text-anchor:middle}
+.steps{counter-reset:s;list-style:none;padding-left:0}
+.steps>li{counter-increment:s;position:relative;padding-left:34px;margin:8px 0}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:3px;width:24px;height:24px;border-radius:50%;background:var(--green);color:var(--surface);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ok{color:var(--ok);font-weight:700}.no{color:var(--no);font-weight:700}
+.muted{color:var(--muted)}
+.check{padding-left:0}
+.check li{list-style:none}
+.check li::before{content:"☐ ";color:var(--green)}
+</style>
+</head>
+<body data-page="logic">
+<header class="bar">
+  <a class="icon" href="index.html" aria-label="과목 목록으로" title="과목 목록"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11h14V9"/><path d="M10 20v-6h4v6"/></svg></a>
+  <h1>논리와 비판적 사고<span class="post"> · 중간고사 총정리</span></h1>
+  <button class="toggle" id="blankBtn" aria-pressed="false" type="button">빈칸 모드</button>
+  <button class="icon" id="themeBtn" type="button" aria-label="밝게/어둡게 전환" title="테마 전환"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+</header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<pattern id="hatch" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" style="fill:var(--hatch);opacity:.14"/><line x1="0" y1="0" x2="0" y2="7" style="stroke:var(--hatch);stroke-width:2.4"/></pattern>
+<pattern id="hatch-acc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-45)"><rect width="7" height="7" style="fill:var(--hatch-acc);opacity:.14"/><line x1="0" y1="0" x2="0" y2="7" style="stroke:var(--hatch-acc);stroke-width:2.4"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink)"/></marker>
+<marker id="arr-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="arr-no" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--no)"/></marker>
+<marker id="arr-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ok)"/></marker>
+<linearGradient id="grad-vague" x1="0" x2="1" y1="0" y2="0"><stop offset="0" style="stop-color:var(--ok-soft)"/><stop offset=".35" style="stop-color:var(--ok-soft)"/><stop offset=".65" style="stop-color:var(--no-soft)"/><stop offset="1" style="stop-color:var(--no-soft)"/></linearGradient>
+</defs></svg>
+
+<div class="wrap">
+<nav class="nav" aria-label="목차">
+  <ol>
+    <li><a href="#s0">시험 안내</a></li>
+    <li><a href="#s1">논증이란?</a></li>
+    <li><a href="#s2">문장과 명제</a></li>
+    <li><a href="#s3">논증의 표준형식 ★</a></li>
+    <li><a href="#s4">논증과 논증 아닌 것</a></li>
+    <li><a href="#s5">내포와 외연 ★</a></li>
+    <li><a href="#s6">모호성과 애매성 ★</a></li>
+    <li><a href="#s7">정의의 종류 · 좋은 정의</a></li>
+    <li><a href="#s8">명제의 종류</a></li>
+    <li><a href="#s9">연역과 귀납 ★</a></li>
+    <li><a href="#s10">타당성과 건전성 ★</a></li>
+    <li><a href="#s11">명제 사이의 관계</a></li>
+    <li><a href="#s12">논리연결사와 진리표</a></li>
+    <li><a href="#s13">일상어를 기호로 바꾸기 ★</a></li>
+    <li><a href="#s14">타당한 형식 · 부당한 형식</a></li>
+    <li><a href="#s15">정언명제</a></li>
+    <li><a href="#s16">정언명제의 관계 (현대적 해석)</a></li>
+    <li><a href="#s17">벤다이어그램 ★</a></li>
+    <li><a href="#s18">벤다이어그램 없이 빨리 푸는 법</a></li>
+    <li><a href="#s19">강의자료 연습문제 정답 모음</a></li>
+    <li><a href="#s20">시험 직전 체크리스트</a></li>
+  </ol>
+</nav>
+
+<main>
+<div class="hero">
+  <p class="d">논증부터 벤다이어그램까지</p>
+  <p>10월 26일(월) 16:30~17:45 (75분) · 25문제 · 서술형, 단답형, 객관식(복수 선택 포함)</p>
+  <dl>
+    <dt>범위</dt><dd>강의자료 [2]~[12] (8주차 [13] 귀납논증은 범위 밖)</dd>
+    <dt>자료</dt><dd>강의 사진의 판서, 녹취록의 교수님 설명, 시험 공지</dd>
+  </dl>
+  <p class="how">테두리 상자는 정의, 초록 상자는 쉬운 설명, 붉은 상자는 함정과 교수님 힌트입니다. 형광펜 친 용어는 위의 <b>빈칸 모드</b>를 켜면 가려지고, 가려진 칸을 누르면 정답이 보입니다. 연습 문제는 질문을 누르면 답이 나옵니다.</p>
+  <div class="qbar"><button class="toggle" type="button" id="openAll">답 모두 펼치기</button><button class="toggle" type="button" id="closeAll">답 모두 접기</button></div>
+</div>
+
+<!-- ============================== 0 ============================== -->
+<section id="s0">
+<h2><span class="n">00</span>시험 안내</h2>
+<div class="tbl"><table>
+  <tr><th style="width:24%">일시</th><td>2026년 10월 26일(월) 16:30~17:45 (75분) · 10월 21일(수) 수업 없음</td></tr>
+  <tr><th>장소</th><td>IT 1호관 101호 / 109호. 자기 시험실을 직접 찾아갈 것. 늦으면 교수님이 있는 시험실로.</td></tr>
+  <tr><th>문항</th><td>25문제 · 서술형, 단답형, 객관식(복수 선택 포함)</td></tr>
+  <tr><th>점수</th><td>100점 만점 → 40점으로 환산. 부분 점수 있음. <b>“2개 고르라”는데 3개 고르면 무조건 0점.</b></td></tr>
+  <tr><th>범위</th><td>강의자료 [2]~[12] (8주차 [13] 귀납논증은 범위 밖)</td></tr>
+</table></div>
+
+<div class="grid2">
+<div class="box tip"><span class="bt">○ 반드시 나오는 것</span>
+<ul>
+  <li><b>논증의 표준형식</b> 쓰기</li>
+  <li><b>애매함 vs 모호함</b> 정확히 구분</li>
+  <li><b>내포 vs 외연</b> 구분</li>
+  <li><b>연역논증·귀납논증의 정의</b></li>
+  <li><b>벤다이어그램 직접 그리기</b> (10/14: 강의자료 문제 1개 + 교수님이 만든 문제 1개)</li>
+  <li>타당성·건전성 평가 (“문제가 나올 거거든요”)</li>
+  <li>그 밖에 아래 ‘안 나오는 것’ 빼고 전부</li>
+</ul></div>
+<div class="box skip"><span class="bt">× 안 나오는 것</span>
+<ul>
+  <li>표준형식 문제 말고 따로 <b>전제/결론 찾기</b> 문제</li>
+  <li>애매어의 오류, 흑백사고의 오류</li>
+  <li>의미론/통사론 정의</li>
+  <li>사실명제와 가치명제의 <b>간극</b></li>
+  <li>딜레마 <b>피하기</b> (뿔 잡기 등)</li>
+  <li>추론 규칙으로 타당성을 <b>서술</b>하는 문제 (타당한지 <b>판단</b>은 해야 함)</li>
+  <li>대당사각형의 <b>전통적</b> 입장</li>
+  <li>기호 이름(연언/선언), 형식 이름(후건부정법 등)을 묻는 문제</li>
+</ul></div>
+</div>
+
+<div class="box warn"><span class="bt">수업에서 교수님이 직접 주신 힌트</span>
+<ul>
+  <li><b>표준형식 문제:</b> “결론을 먼저 찾고, 나머지는 전부 전제라고 적으면 됩니다. 전제 아닌 문장이 섞여 있을 거라고 깊게 생각하지 마세요.” (10/19)</li>
+  <li>앞부분(논증, 명제, 정의)은 어렵게 내지 않는다. <b>연역이 중요</b>하다. (9/7)</li>
+  <li>논증 vs 논증 아닌 글 구분 문제는 “2개 고르기, 하나만 맞아도 부분 점수” 식으로 낸다. (9/9)</li>
+  <li>정의의 종류를 묻는다면 <b>새 문장이 아니라 수업 예문</b>으로 묻는다. (9/16)</li>
+  <li>진리값 문제는 각 명제의 진리값을 주고 전체의 참/거짓을 묻는다. (9/28)</li>
+  <li>“연역 문제는 항상 <b>반드시 참인 것</b>을 고르는 문제다.” (9/28)</li>
+  <li>수사적 의문문이 논증의 결론으로 쓰이는 경우를 실제로 낸다. (9/7)</li>
+  <li>특칭명제는 <b>절대 조건문(→)으로 바꾸지 말 것.</b> (10/14, 10/19)</li>
+</ul></div>
+</section>
+
+<!-- ============================== 1 ============================== -->
+<section id="s1">
+<h2><span class="n">01</span>논증이란?</h2>
+<div class="box def"><b class="k">논증</b> = 하나 이상의 명제가 다른 하나의 명제를 뒷받침하는 근거 또는 이유로 <b>의도되었을 때</b>, 이 일련의 진술</div>
+<figure><svg class="dg" viewBox="0 0 560 150" role="img" aria-label="논증의 구조">
+<rect class="fill-paper" x="20" y="14" width="200" height="48" rx="10"/><text class="mid" x="120" y="35">P1. 전제 (근거·이유)</text><text class="mid mut" x="120" y="53" style="font-size:12px">하나 이상</text>
+<rect class="fill-paper" x="20" y="86" width="200" height="48" rx="10"/><text class="mid" x="120" y="107">P2. 전제 (근거·이유)</text><text class="mid mut" x="120" y="125" style="font-size:12px">여러 개여도 OK</text>
+<path class="st" d="M222 38 C 280 38, 290 74, 330 74" marker-end="url(#arr)"/><path class="st" d="M222 110 C 280 110, 290 76, 330 76" marker-end="url(#arr)"/>
+<text class="mid mut" x="438" y="128" style="font-size:12px">← 뒷받침하려는 의도</text>
+<rect class="fill-acc" x="336" y="44" width="204" height="62" rx="12"/><text class="mid b" x="438" y="70">C. 결론 (주장)</text><text class="mid acc b" x="438" y="91" style="font-size:12px">반드시 딱 하나</text>
+</svg><figcaption>전제는 여러 개 가능, 결론은 하나. 결론이 2개면 논증이 2개다.</figcaption></figure>
+<h3>꼭 기억할 4가지</h3>
+<ol>
+  <li><b>“의도되었을 때”가 핵심.</b> 근거가 실제로는 결론을 잘 뒷받침하지 못해도, 뒷받침하려는 <b>의도</b>만 있으면 논증이다. (그래야 “나쁜 논증”도 논증으로 평가할 수 있다.)
+    <div class="easy">예) “존과 메리는 결혼한 커플이야. 따라서 한 사람은 남자, 한 사람은 여자야.” → 동성 결혼이 있으니 근거가 약하지만 그래도 <b>논증</b>(타당하지 않은 논증).</div></li>
+  <li><b>결론은 하나</b>, 전제는 하나 이상(여러 개 가능). 결론이 두 개면 논증이 두 개다.</li>
+  <li>결론은 <b>맨 앞, 중간, 맨 끝 어디든</b> 올 수 있다.</li>
+  <li>결론이 누구나 아는 사실이어도, 다른 문장에서 끌어내는 구조면 논증이다. (파리는 프랑스에 있다 → 프랑스는 유럽에 있다 → 파리는 유럽에 있다)</li>
+</ol>
+<div class="box tip">쉽게 말하면: <b>“이 사람이 나를 설득하려고 이유를 대고 있나?”</b> → 그렇다면 논증.</div>
+</section>
+
+<!-- ============================== 2 ============================== -->
+<section id="s2">
+<h2><span class="n">02</span>문장과 명제</h2>
+<div class="tbl"><table>
+  <tr><th style="width:18%">문장</th><td>단어를 문법에 맞게 나열한 것. 평서문·의문문·명령문·감탄문·청유문 모두 문장.</td></tr>
+  <tr><th>명제</th><td><b>참 또는 거짓으로 판단할 수 있는 문장</b>(의 내용). 전제나 결론이 될 수 있는 것은 명제뿐이다.</td></tr>
+</table></div>
+<ul>
+  <li>의문문·감탄문·명령문·청유문은 보통 명제가 아니다. (참/거짓을 따질 수 없으니까)</li>
+  <li><b>거짓인 문장도 명제</b>다. (“얼음은 뜨겁다” → 거짓인 명제)</li>
+  <li><b>지금 참/거짓을 몰라도 명제</b>다. (“1만 년 뒤에도 지구는 존재한다”, “지금 바다의 고등어 수는 짝수다”)</li>
+  <li>“어머니의 사랑”은 명사구라서 문장이 아니고, 명제도 아니다.</li>
+  <li><b>하나의 명제를 여러 문장으로</b> 쓸 수 있다. (“비가 온다” = “It is raining”)</li>
+</ul>
+
+<div class="box warn"><span class="bt">예외 2개 (교수님: “예외를 주의 깊게!”)</span>
+<ol>
+  <li><b>평서문인데 명제가 아닌 것:</b> “이 문장은 거짓이다.” (거짓말쟁이 역설: 참이라 해도 거짓이라 해도 모순) → 그래서 “평서문은 항상 참이거나 거짓이다”는 <b>틀린 말</b>.</li>
+  <li><b>의문문인데 명제인 것: 수사적 의문문.</b> 물음 형식이지만 답을 요구하지 않고 강한 주장을 담은 의문문.
+    <div class="easy">“이런 것도 모르는 사람이 어디 있어?” = “모든 사람이 이것을 안다.” → 명제이고, <b>논증의 결론</b>으로도 쓰인다.</div></li>
+</ol></div>
+<p>또, “현재 미국 대통령은 백인이다”, “나는 영희를 사랑한다”처럼 <b>맥락이 없으면</b> 참/거짓을 정할 수 없는 문장도 있다. 특정 상황(맥락)에서 쓰이면 명제가 된다.</p>
+
+<details class="q"><summary>연습: 문장은 몇 개, 명제는 몇 개?</summary>
+<div class="a">
+<p>① “펭수는 열 살이다 / Pengsoo is 10 years old / 뽀로로는 열 살이다” → <b>문장 3개, 명제 2개</b> (앞 두 개는 같은 내용)</p>
+<p>② “철수는 영희보다 키가 크다 / 영희는 철수보다 키가 작다 / 영희는 철수보다 키가 작지 않다” → <b>문장 3개, 명제 2개</b></p>
+<p>③ “수요일 바로 전날 여기서 집회가 있다 / 화요일에 여기서 집회가 있다” → <b>문장 2개, 명제 1개</b></p>
+</div></details>
+<details class="q"><summary>연습: 전제나 결론으로 쓰일 수 있는가? (강의자료 6쪽)</summary>
+<div class="a">
+<div class="tbl"><table>
+<tr><th>표현</th><th>답</th><th>이유</th></tr>
+<tr><td>1) 어머니의 사랑</td><td class="no">×</td><td>명사구</td></tr>
+<tr><td>2) 얼음은 뜨겁다.</td><td class="ok">○</td><td>거짓이어도 명제</td></tr>
+<tr><td>3) 저녁노을이 어쩜 이렇게 아름다울 수 있을까!</td><td class="no">×</td><td>감탄문</td></tr>
+<tr><td>4) 아이가 태어날 때 참과 거짓의 개념을 갖고 태어날까?</td><td class="no">×</td><td>진짜 질문</td></tr>
+<tr><td>5) 나는 신이 있는지 없는지 모르겠다.</td><td class="ok">○</td><td>말한 사람이 정해지면 판단 가능</td></tr>
+<tr><td>6) “소금은 달다”는 참이다.</td><td class="ok">○</td><td>거짓인 명제</td></tr>
+<tr><td>7) 이런 것도 모르는 사람이 어디 있어?</td><td class="ok">○</td><td>수사적 의문문 ★</td></tr>
+<tr><td>8) 창문을 열고 환기를 좀 합시다!</td><td class="no">×</td><td>청유문</td></tr>
+<tr><td>9) 나는 수도자야.</td><td class="ok">○</td><td></td></tr>
+<tr><td>10) 내일은 비가 오거나 오지 않을 것이다.</td><td class="ok">○</td><td>무조건 참인 명제</td></tr>
+</table></div>
+<p>[3]가: 맞는 것은 <b>④ 하나의 논증은 두 개 이상의 전제를 가질 수 있다.</b> (①은 수사적 의문문, ②는 거짓말쟁이 문장이 예외, ③ 결론은 하나)</p>
+</div></details>
+</section>
+
+<!-- ============================== 3 ============================== -->
+<section id="s3">
+<h2><span class="n">03</span>논증의 표준형식 <span class="tag hot">출제 확정</span></h2>
+<div class="box def"><b class="k">논증의 표준형식</b> = 논증의 전제와 결론을 체계적으로 나열한 것. 전제를 P1, P2… 로 먼저 쓰고, 마지막에 결론 C를 쓴다.</div>
+<ol class="steps">
+  <li><b>결론부터 찾는다.</b> “이 사람이 결국 하고 싶은 말(핵심 주장)이 뭐지?” 그 주장을 하나의 명제로 써 본다.</li>
+  <li><b>나머지 문장을 전제로 쓴다.</b> “이 사람은 왜 그 결론이 옳다고 믿지?” (교수님: 이번 시험에서는 나머지를 다 전제로 적으면 된다.)</li>
+  <li>P1. P2. … 를 위에, 마지막 줄에 C. 를 쓴다. 원문에서 결론이 맨 앞에 있어도 표준형식에서는 <b>맨 아래</b>.</li>
+</ol>
+<div class="box warn"><span class="bt">감점 피하기</span>
+<ul>
+  <li>전제를 <b>“원인”이라고 쓰지 말 것.</b> (전제, 근거, 이유는 OK. 원인은 설명에서 쓰는 말)</li>
+  <li><b>수사적 의문문</b>이 결론이면 평서문 주장으로 고쳐 쓴다. (“~잘못된 일이 아닌가?” → “~잘못된 일이다.”)</li>
+  <li>“이런 주장”, “그것”처럼 가리키는 말은 <b>무엇을 가리키는지 풀어서</b> 쓴다.</li>
+  <li>결론 지시어 힌트: 그러므로, 따라서, 그래서, …임에 틀림없다, <b>…을 수반한다, …을 함축한다</b> / 전제 지시어: 왜냐하면, …때문에, …인 까닭에, …를 고려한다면, …인 한. (단, 지시어는 절대 기준이 아님)</li>
+  <li>지시어가 없으면 두 문장 사이에 “왜냐하면”과 “따라서”를 넣어 보고 더 자연스러운 쪽을 고른다.</li>
+</ul></div>
+
+<h3>예제</h3>
+<p>“이타주의를 요구하는 사회체제는 실패할 수밖에 없어. 인간은 원래 탐욕스러운 존재니까 말이야.”</p>
+<div class="arg"><div>P. 인간은 원래 탐욕스러운 존재이다.</div><div class="c">C. 이타주의를 요구하는 사회체제는 실패할 수밖에 없다.</div></div>
+
+<details class="q"><summary>연습 1) 정의로운 국가 (강의자료 7쪽)</summary><div class="a">
+<p class="muted">정의로운 국가는 우연적으로 만들어지는 것이 아니라 지혜와 절제, 그리고 용기에 의해서 만들어진다. 정의로운 국가로 나아가기 위해서는 시민의 적극적인 참여 자세가 정의로워야 한다. 그러므로 시민들은 … 고민해야 한다.</p>
+<div class="arg"><div>P1. 정의로운 국가는 우연적으로 만들어지는 것이 아니라 지혜와 절제, 그리고 용기에 의해서 만들어진다.</div><div>P2. 정의로운 국가로 나아가기 위해서는 시민의 적극적인 참여 자세가 정의로워야 한다.</div><div class="c">C. 시민들은 정의로운 국가를 위한 그들의 적극적인 참여 자세가 어떻게 하면 정의로울 수 있는지 고민해야 한다.</div></div>
+</div></details>
+<details class="q"><summary>연습 2) 권력의 사슬</summary><div class="a">
+<div class="arg"><div>P. 인류 내에 존재하는 권력의 사슬은 힘과 억압에 의해서가 아니라 정신적이고 사회적인 능력에 따라 결정되는 것이 자연스럽다.</div><div class="c">C. 남성이 여성을 물리적인 힘으로 억압할 수 있다는 것이 역사에서 가장 안정된 현실적 사회체제라고 보기는 어렵다.</div></div>
+</div></details>
+<details class="q"><summary>연습 3) 임종 (결론이 맨 앞에 있는 경우)</summary><div class="a">
+<div class="arg"><div>P. 가까운 사람들이 임종 과정을 지켜보는 것은 가까운 사람들의 슬픔을 덜어 줄 뿐만 아니라, 죽음을 맞이한 사람이 죽음을 좀 더 쉽게 받아들이게 할 것이다.</div><div class="c">C. 누군가 죽음을 맞이할 때, 그와 가까운 사람들이 임종 과정을 지켜보는 것은 중요하다.</div></div>
+<p class="easy">“그것은”을 “임종 과정을 지켜보는 것은”으로 풀어 썼다.</p>
+</div></details>
+<details class="q"><summary>연습 4) 이 시험은 불공정하다 (강의자료 10쪽)</summary><div class="a">
+<div class="arg"><div>P1. 나는 한 달이나 공부를 했다.</div><div>P2. 그 동안 자료를 세 번이나 읽었고, 중요한 부분은 따로 정리해서 외우기까지 했다.</div><div>P3. 이렇게까지 했으면 나는 당연히 좋은 성적을 받아야 한다.</div><div class="c">C. 이 시험은 불공정하다.</div></div>
+</div></details>
+<details class="q"><summary>연습 5) 수사적 의문문이 결론인 경우 (보부아르·버틀러)</summary><div class="a">
+<div class="arg"><div>P1. 시몬 드 보부아르는 『제2의 성』에서 “여자는 태어나는 것이 아니라 만들어지는 것이다”라고 선언했다.</div><div>P2. 주디스 버틀러는 『성차의 정치학』에서 “남녀의 생물학적 차이는 없다”고 주장한다.</div><div class="c">C. 남녀의 특성을 따로 나누어 인간을 평가하는 것은 잘못된 일이다.</div></div>
+</div></details>
+<details class="q"><summary>연습 6) 지시어가 결론에 들어 있는 경우 (인류의 위기)</summary><div class="a">
+<div class="arg"><div>P. 인류의 과거 역사를 돌이켜보면, 과학 기술과 우리의 반성적인 사고로 인해 우리가 직면한 많은 문제에 대해 우리는 궁극적으로 대응할 수 있었다.</div><div class="c">C. ‘우리 인류는 항상 우리가 대처하지 못할 위기를 초래하는 일은 없었다’는 주장은 결코 근거 없는 것이 아니다.</div></div>
+<p class="easy">“이런 주장”을 실제 내용으로 풀어 썼다.</p>
+</div></details>
+</section>
+
+<!-- ============================== 4 ============================== -->
+<section id="s4">
+<h2><span class="n">04</span>논증과 논증 아닌 것</h2>
+<p>판별 질문 하나: <b>“주장(결론)이 있고, 그걸 근거로 뒷받침하나?”</b></p>
+<div class="tbl"><table>
+  <tr><th style="width:18%">종류</th><th>특징</th><th style="width:34%">예</th></tr>
+  <tr><td><b>논증</b></td><td>근거로 주장을 뒷받침 (설득)</td><td>사형제도는 오판 가능성 때문에 폐지되어야 한다</td></tr>
+  <tr><td>단순한 주장</td><td>주장만 있고 근거가 없음</td><td>아고라는 개방성과 평등성이 보장되는 공간이다…</td></tr>
+  <tr><td>보고</td><td>사실이나 <b>남의 견해</b>를 전달만 함</td><td>“홉스에 따르면 …”(홉스의 논증을 보고)</td></tr>
+  <tr><td>묘사 · 서사</td><td>감각적 인상 / 시간 순서대로 사건 기술 (중요도 낮음)</td><td>에게해 풍경 / 백화점에서 뛰쳐나온 남자</td></tr>
+  <tr><td>예시</td><td>예를 들어 보여줌. 단, <b>예시가 주장을 정당화하면 논증</b></td><td>야생화 예시(예시) / 근본주의자 비판(논증)</td></tr>
+  <tr><td><b>설명</b></td><td>이미 모두 아는 <b>사실의 원인</b>을 밝힘 (이해)</td><td>타이타닉호는 빙산에 부딪혔기 때문에 침몰했다</td></tr>
+</table></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="dg" viewBox="0 0 260 210" role="img" aria-label="논증">
+<text class="mid b" x="130" y="22" style="font-size:15px">논증</text>
+<rect class="fill-paper" x="35" y="36" width="190" height="44" rx="10"/><text class="mid" x="130" y="63">전제 (이유·근거)</text>
+<path class="st" d="M130 82 L130 116" marker-end="url(#arr)"/><text class="mut" x="138" y="104" style="font-size:12px">뒷받침</text>
+<rect class="fill-acc" x="35" y="120" width="190" height="44" rx="10"/><text class="mid b" x="130" y="147">결론 = 내 생각(주장)</text>
+<text class="mid mut" x="130" y="186" style="font-size:12px">상대가 아직 동의하지 않음</text><text class="mid acc b" x="130" y="203" style="font-size:12px">목적: 설득</text>
+</svg><figcaption>예) 사형제도는 오판 가능성 때문에 폐지되어야 한다</figcaption></figure></div>
+<div class="fig-card"><figure><svg class="dg" viewBox="0 0 260 210" role="img" aria-label="설명">
+<text class="mid b" x="130" y="22" style="font-size:15px">설명</text>
+<rect class="fill-paper" x="35" y="36" width="190" height="44" rx="10"/><text class="mid" x="130" y="63">설명항 (원인)</text>
+<path class="st" d="M130 82 L130 116" marker-end="url(#arr)"/><text class="mut" x="138" y="104" style="font-size:12px">왜 일어났나</text>
+<rect class="fill-ok" x="35" y="120" width="190" height="44" rx="10"/><text class="mid b" x="130" y="147">피설명항 = 사실</text>
+<text class="mid mut" x="130" y="186" style="font-size:12px">이미 모두 동의하는 일</text><text class="mid okc b" x="130" y="203" style="font-size:12px">목적: 이해</text>
+</svg><figcaption>예) 타이타닉호는 빙산에 부딪혔기 때문에 침몰했다</figcaption></figure></div></div>
+<div class="box tip"><span class="bt">헷갈릴 때 쓰는 기준</span>
+<ul>
+  <li>뒷받침받는 문장이 <b>누구나 동의하는 사실</b>이면 설명, <b>논란이 될 수 있는 생각</b>이면 논증.</li>
+  <li><b>“~해야 한다”(가치판단)</b>가 담긴 문장은 결론일 가능성이 높다. 단, 근거가 없으면 단순한 주장이다.</li>
+  <li><b>논증 지시어는 절대 기준이 아니다.</b> “왜냐하면”이 있어도 설명일 수 있고(늦게 일어났다. 왜냐하면 늦게 잤거든), 지시어가 없어도 논증일 수 있다.</li>
+  <li>이유 = 생각·행동의 근거(논증) / 원인 = 사건이 일어난 경위(설명).</li>
+</ul></div>
+<details class="q"><summary>연습: 어떤 글인가? (강의자료 12~13쪽)</summary><div class="a">
+<div class="tbl"><table>
+<tr><th>글</th><th>답</th></tr>
+<tr><td>도덕적 책임은 자유의지를 전제하고 … 인간은 도덕적으로 책임 있는 존재가 아니다</td><td><b>논증</b></td></tr>
+<tr><td>키 작은 사람이 키 작은 자식을 낳을 가능성이 높다는 사실은 명백하다. 왜 그럴까? 키는 유전되기 때문이다</td><td><b>설명</b></td></tr>
+<tr><td>아마 저 건물이 회의 장소인 것 같다. 거기를 봐, 차들이 많이 주차해 있잖아?</td><td><b>논증</b></td></tr>
+<tr><td>(선생님이 학부모에게) 인철이가 꼴찌를 해서 안타깝다. 동기가 부족한 것 같다</td><td><b>설명</b></td></tr>
+<tr><td>사회의 근본 가치가 위협당하면 … 그러므로 우리 사회는 이 문제를 해결해야 한다</td><td><b>논증</b></td></tr>
+<tr><td>프로이드에 의하면 성적인 에너지가 인간 행위의 동인이 된다 …</td><td><b>보고</b></td></tr>
+<tr><td>의사: “이 여자는 심장마비가 왔는데 도와줄 사람이 없었기 때문에 죽었다.”</td><td><b>설명</b></td></tr>
+<tr><td>정부 대변인: “트롤 어선이 침몰한 이유는 아마도 잠수함이 그물에 걸렸기 때문인 것 같다.”</td><td><b>설명</b></td></tr>
+<tr><td>기자: “중앙은행이 금리를 내릴 것 같다. 왜냐하면 경기가 후퇴하고 …”</td><td><b>논증</b></td></tr>
+<tr><td>지진학자: 판의 마찰 때문에 1906년 대지진이 일어났고(설명), 그것이 또 지진이 일어날 것으로 예상되는 이유다(논증)</td><td><b>설명+논증</b></td></tr>
+</table></div>
+<p>[4]라 논증을 모두 고르면: <b>②③⑤</b> (① 단순한 주장, ④ 아렌트 견해의 보고)</p>
+<p>[4]마 논증을 모두 고르면: <b>①④</b> (② 묘사, ③⑤ 설명)</p>
+<p>[4]가 참/거짓: 1) 지시어가 있으면 반드시 논증 <b>거짓</b> · 2) 전제는 주장을 정당화하는 근거 명제 <b>참</b> · 3) 논증 여부는 정당화 의도로 결정 <b>참</b> · 4) 전제는 항상 결론보다 앞에 온다 <b>거짓</b></p>
+<p>[4]나 밑줄(결론) 표기가 잘못된 것: <b>④</b> (진짜 결론은 첫 문장 “임대료의 상한을 둔다고 해서 음식 가격이 즉각 인하되는 것은 아니다”)</p>
+</div></details>
+</section>
+
+<!-- ============================== 5 ============================== -->
+<section id="s5">
+<h2><span class="n">05</span>내포와 외연 <span class="tag hot">구분 문제 출제</span></h2>
+<div class="grid2">
+<div class="box def"><b class="k">내포</b> = 단어에 연관된 일반적인 속성. 그 개념이 적용되는 모든 대상에 공통으로 들어 있는 성질.<br><span class="easy">쉽게: <b>사전에서 찾은 뜻</b></span></div>
+<div class="box def"><b class="k">외연</b> = 단어가 적용되는 모든 대상들의 집합 또는 범위.<br><span class="easy">쉽게: <b>그 단어가 가리키는 실제 대상들</b></span></div>
+</div>
+<p>교수님 요약: <b>“내포는 뜻, 외연은 대상.”</b></p>
+<div class="grid2"><div class="fig-card"><figure><svg class="dg" viewBox="0 0 280 190" role="img" aria-label="내포는 다르고 외연은 같음">
+<rect class="fill-paper" x="10" y="20" width="150" height="56" rx="10"/><text class="mid b" x="85" y="42">샛별</text><text class="mid mut" x="85" y="62" style="font-size:11.5px">새벽 동쪽의 밝은 별</text>
+<rect class="fill-paper" x="10" y="112" width="150" height="56" rx="10"/><text class="mid b" x="85" y="134">개밥바라기</text><text class="mid mut" x="85" y="154" style="font-size:11.5px">저녁 서쪽의 밝은 별</text>
+<path class="st-acc" d="M162 48 C 200 48, 205 90, 222 92" marker-end="url(#arr-acc)"/><path class="st-acc" d="M162 140 C 200 140, 205 98, 222 96" marker-end="url(#arr-acc)"/>
+<circle class="fill-acc" cx="248" cy="94" r="24"/><text class="mid b" x="248" y="99">금성</text>
+<text class="mid mut" x="85" y="98" style="font-size:12px">← 내포(뜻)는 다름 →</text><text class="mid acc" x="248" y="136" style="font-size:12px">외연은 같음</text>
+</svg><figcaption>내포가 달라도 외연은 같을 수 있다 (역은 불가능)</figcaption></figure></div>
+<div class="fig-card"><figure><svg class="dg" viewBox="0 0 280 190" role="img" aria-label="내포와 외연의 반비례">
+<ellipse class="fill-paper" cx="118" cy="98" rx="108" ry="84"/><text class="mid" x="118" y="32">학생</text>
+<ellipse class="fill-acc" cx="118" cy="110" rx="78" ry="60" style="opacity:.9"/><text class="mid" x="118" y="70">대학생</text>
+<ellipse class="fill-ok" cx="118" cy="124" rx="46" ry="34"/><text class="mid" x="118" y="120" style="font-size:11.5px">경북대</text><text class="mid" x="118" y="135" style="font-size:11.5px">철학과 학생</text>
+<path class="st" d="M250 160 L250 30" marker-end="url(#arr)"/><text class="mid b" x="250" y="20" style="font-size:12px">내포↑</text>
+<path class="st-acc" d="M268 30 L268 160" marker-end="url(#arr-acc)"/><text class="mid acc b" x="262" y="178" style="font-size:12px">외연↓</text>
+</svg><figcaption>뜻(조건)을 더할수록 해당하는 대상은 줄어든다 = 반비례(시소)</figcaption></figure></div></div>
+<h3>규칙 정리</h3>
+<div class="tbl"><table>
+  <tr><th style="width:44%">경우</th><th>가능?</th><th>예</th></tr>
+  <tr><td>내포가 같으면 외연도 같다</td><td class="ok">항상</td><td>유부남 = 기혼남</td></tr>
+  <tr><td>내포는 다른데 외연이 같다</td><td class="ok">가능</td><td>샛별/개밥바라기 → 금성 · “가장 작은 소수”와 “0보다 큰 가장 작은 짝수” → 2 · 금강산/봉래산/풍악산/개골산</td></tr>
+  <tr><td><b>내포는 같은데 외연이 다르다</b></td><td class="no">절대 불가</td><td>내포가 외연을 결정하니까</td></tr>
+  <tr><td>내포만 있고 외연은 없다</td><td class="ok">가능</td><td>둥근 사각형, 인어, 용, 페가수스, 유니콘, 산타클로스</td></tr>
+  <tr><td>외연은 있고 내포는 없다</td><td class="ok">가능</td><td>고유명사(사람 이름)</td></tr>
+  <tr><td>내포·외연이 같고 뉘앙스만 다르다</td><td class="ok">가능</td><td>중 / 승려 / 스님 → 뉘앙스는 심리적인 것이라 참·거짓 판단에 영향 없음</td></tr>
+</table></div>
+<div class="box tip"><b>반비례:</b> 내포(조건)가 늘어나면 외연(범위)이 줄어든다. 학생 → 대학생 → 경북대 철학과 학생. (교수님: “시소 게임”)</div>
+<details class="q"><summary>[5]가: 적절한 것을 모두 고르면?</summary><div class="a">
+<p>① “사람”과 “인간”은 내포도 외연도 다르다 → <span class="no">×</span> (넓게 보면 둘 다 같음)<br>
+② “가장 작은 소수”와 “0보다 큰 자연수 중 가장 작은 짝수”는 내포는 다르지만 외연은 같다 → <span class="ok">○</span><br>
+③ “중”과 “승려”는 외연은 다르지만 내포는 같다 → <span class="no">×</span> (내포가 같으면 외연도 같아야 함)<br>
+④ “배” 같은 애매한 단어는 두 가지 내포를 가질 수 있다 → <span class="ok">○</span><br>
+⑤ “용”과 “페가수스”는 외연은 없지만 내포는 있다 → <span class="ok">○</span></p>
+<p>정답: <b>②④⑤</b></p></div></details>
+</section>
+
+<!-- ============================== 6 ============================== -->
+<section id="s6">
+<h2><span class="n">06</span>모호성과 애매성 <span class="tag hot">정확히 구분</span></h2>
+<p>교수님: <b>“애매한 건 뜻이 2개인 거고, 모호한 거는 경계가 불분명한 거.”</b> (PPT와 강의자료 예시로만 공부하면 됨)</p>
+<div class="grid2"><div class="fig-card"><figure><svg class="dg" viewBox="0 0 280 170" role="img" aria-label="모호성">
+<text class="mid b" x="140" y="22" style="font-size:15px">모호성 = 경계가 흐릿</text>
+<rect x="20" y="52" width="240" height="34" rx="8" style="fill:url(#grad-vague);stroke:var(--line)"/>
+<text x="26" y="74" style="font-size:12px">머리숱 많음</text><text x="254" y="74" style="font-size:12px;text-anchor:end">머리카락 0개</text>
+<text class="mid b warn" x="140" y="74">???</text>
+<path class="st-mut" d="M98 92 L98 104 M182 92 L182 104" /><path class="st-mut" d="M98 104 L182 104"/>
+<text class="mid" x="140" y="122" style="font-size:12px">몇 가닥부터 ‘대머리’?</text>
+<text class="mid mut" x="140" y="146" style="font-size:12px">뜻은 하나인데 어디까지인지 불분명</text>
+<text class="mid mut" x="140" y="162" style="font-size:12px">→ 정도의 문제, “줄인다(감소)”</text>
+</svg><figcaption>예) 대머리, 뚱뚱하다, 부자, 우등생, 노랑(색깔), 근처, 좋은</figcaption></figure></div>
+<div class="fig-card"><figure><svg class="dg" viewBox="0 0 280 170" role="img" aria-label="애매성">
+<text class="mid b" x="140" y="22" style="font-size:15px">애매성 = 뜻이 2개 이상</text>
+<rect class="fill-acc" x="20" y="72" width="62" height="40" rx="10"/><text class="mid b" x="51" y="98" style="font-size:16px">배</text>
+<path class="st" d="M84 86 L170 50" marker-end="url(#arr)"/><path class="st" d="M84 92 L170 92" marker-end="url(#arr)"/><path class="st" d="M84 98 L170 134" marker-end="url(#arr)"/>
+<text x="176" y="54">① 먹는 배</text><text x="176" y="96">② 타는 배</text><text x="176" y="138">③ 몸의 배</text>
+<text class="mid mut" x="140" y="162" style="font-size:12px">어느 뜻인지 → “없앤다(제거)”</text>
+</svg><figcaption>예) 배, 말, 다리, 밤, 차, 죄인 · “멋진 동생의 가방”</figcaption></figure></div></div>
+<div class="tbl"><table>
+  <tr><th style="width:16%"></th><th>모호성 (vagueness)</th><th>애매성 (ambiguity)</th></tr>
+  <tr><th>정의</th><td>주어진 맥락에서 단어가 <b>적용되는 경계</b>가 흐릿하고 불분명함</td><td>한 단어가 주어진 맥락에서 <b>서로 다른 의미</b>를 가짐 (내포가 2개 이상 = 외연도 2개 이상)</td></tr>
+  <tr><th>핵심</th><td>뜻은 분명한데 <b>“어디까지?”</b>를 모름</td><td>뜻이 여러 개라 <b>“어느 뜻?”</b>을 모름</td></tr>
+  <tr><th>예</th><td>대머리, 뚱뚱하다, 우등생, 부자, 노랑(색깔), 근처, 좋은, 착취, 최소한, 제3세계, 별로, 따뜻한</td><td>배, 말, 다리, 밤, 차, 죄인(종교적/사법적)</td></tr>
+  <tr><th>해결</th><td>맥락을 주거나 기준을 정해 <b>줄인다(감소)</b> → 계량적 정의</td><td>맥락에 맞는 해석을 골라 <b>없앤다(제거)</b></td></tr>
+</table></div>
+<ul>
+  <li><b>문장 구조 때문에 생기는 애매성</b>도 있다: “내 친구는 나보다 쇼핑을 더 좋아한다”(내가 쇼핑을 좋아하는 것보다? 친구가 나를 좋아하는 것보다?), “멋진 동생의 가방”(멋진 게 동생? 가방?), “선수들이 뛴 거리는 103km”(각자? 합계?).</li>
+  <li><b>둘 다인 단어</b>도 있다: “모든 인간은 <b>평등하게</b> 태어났다” → 법적·기회·경제적 평등 중 무엇?(애매) + 얼마나 같아야 평등?(모호). 부자도 富者/父子(애매) + 얼마나?(모호).</li>
+  <li>과학 언어는 모호성을 피하려 하고, 법률 언어는 일부러 다소 모호한 말을 써서 해석의 여지를 남기기도 한다.</li>
+</ul>
+<details class="q"><summary>연습 모음</summary><div class="a">
+<p>[5]나 애매한 단어–모호한 단어 순서로 바르게 짝지은 것: <b>④ 차 – 노랑</b> (① 뚱뚱한–다리, ② 대머리–죄인은 순서가 반대, ③⑤는 둘 다 모호)</p>
+<p>빈칸: “철수는 밤을 좋아한다는데 어떤 밤?” → 이런 ( <b>애매함</b> )을 <u>제거</u>해야 / “작고 귀여운 갈색 강아지” → ( <b>모호함</b> )을 <u>감소</u>시켜야</p>
+<p>강의자료 18쪽: 1) 평등하게 → <b>애매+모호</b> · 2) 미풍양속 → <b>모호</b> · 3) 103km, 4) 공부 시간 10시간 → 각자인지 합계인지 <b>애매</b>(문장 구조)</p>
+<p>의미가 비교적 분명한 것: “찰스는 어제 4시간밖에 자지 못했다”, “마이클은 나가수 시즌2 3라운드에서 1위” → 분명. “좋은 직장”, “유리네 근처”는 모호.</p>
+</div></details>
+</section>
+
+<!-- ============================== 7 ============================== -->
+<section id="s7">
+<h2><span class="n">07</span>정의의 종류 · 좋은 정의</h2>
+<p>정의 = 개념을 어떻게 사용할지 설명하거나 약정하는 것. <b>피정의항</b>(정의되는 말) = <b>정의항</b>(풀이). 예) 원 = 평면상의 한 점에서 같은 거리에 있는 점들의 집합.</p>
+<h3>정의의 5가지 종류</h3>
+<div class="tbl"><table>
+  <tr><th style="width:15%">종류</th><th>목적 (한 줄)</th><th style="width:36%">수업 예문</th></tr>
+  <tr><td><b>사전적</b></td><td>실제로 사람들이 어떻게 쓰는지 <b>보고</b>. 가장 기본. 단, 사전이 단어 사용의 절대 권위는 아님.</td><td>기부, 죽음, 미궁, 반투명</td></tr>
+  <tr><td><b>약정적</b></td><td>새 단어(또는 옛 단어의 새 뜻)를 <b>“이 뜻으로 쓰자”고 약속</b>. 참/거짓이 아니라 유용·적절·부적절로 평가.</td><td>쿼크, 로또중독자, “논리퀴즈란 ~라고 하자”, 자기충족적 예언효과(“~라고 하자”)</td></tr>
+  <tr><td><b>설득적</b></td><td>듣는 사람의 <b>태도·감정을 유발</b>하려는 정의. <b>나쁜 정의</b> — 정의는 중립적이어야 함. 설득은 논증으로!</td><td>사형제도 = 국가 주도의 보복 살인, 인공유산 = 살인행위, 민주주의 = 무지한 대중의 통치, 신앙 = 비논리적 믿음</td></tr>
+  <tr><td><b>계량적</b></td><td>기존 뜻은 유지하고 <b>모호함을 줄여</b> 특정 맥락에서 명확히. 숫자가 꼭 필요한 건 아님.</td><td>음주운전 = 혈중알코올 0.03% 이상, 출석 미달 = 결석 1/4 초과</td></tr>
+  <tr><td><b>조작적</b></td><td>눈에 안 보이는 개념을 <b>관찰·측정 절차</b>로 구체화. 측정하려는 개념과 얼마나 잘 맞는지로 평가.</td><td>알칼리성 = 리트머스지가 푸르게 변함, 지적능력 = 10분간 단어 70% 암기</td></tr>
+</table></div>
+<div class="box tip">약정적 vs 계량적: 약정적은 <b>새 뜻을 부여</b>, 계량적은 <b>원래 뜻의 경계만 분명히</b>. 그리고 약정적·계량적·조작적 정의도 시간이 지나 상식이 되면 <b>사전적 정의</b>가 된다.</div>
+<details class="q"><summary>어떤 정의인가? (강의자료 21쪽 · 수업 예문 그대로 출제 가능)</summary><div class="a">
+<div class="tbl"><table>
+<tr><td>1) 철학자는 답변이 될 수 없는 질문에 답변하기 위해 전 생애를 보내는 망상에 젖어 있는 몽상가</td><td><b>설득적</b></td></tr>
+<tr><td>2) 형광 물질은 자외선을 쪼였을 때 작열하는 물질</td><td><b>조작적</b></td></tr>
+<tr><td>3) 성희롱은 … 그 기준은 피해자의 합리적인 주관적 판단을 따르는 것을 원칙으로 한다</td><td><b>사전적</b> (지금은 상식이 됨)</td></tr>
+<tr><td>4) 반투명이라는 것은 빛을 일부만 통과시키는 성질</td><td><b>사전적</b></td></tr>
+<tr><td>5) 의심할 만한 여지 없음 = 배심원단 10명 중 9명 이상이 확신</td><td><b>계량적</b></td></tr>
+</table></div>
+<p>[6]가: 1) 자기충족적 예언효과 “~라고 하자” <b>약정적</b> · 2) 미궁 <b>사전적</b> · 3) 민주주의 = 무지한 대중의 통치 <b>설득적</b> · 4) 신앙 = 비논리적 믿음 <b>설득적</b></p>
+</div></details>
+
+<h3>좋은 정의의 8가지 조건 (상식으로 풀 수 있음)</h3>
+<div class="tbl"><table>
+  <tr><th style="width:36%">조건</th><th>위반 예</th></tr>
+  <tr><td>① 너무 넓거나 좁으면 안 된다 (외연)</td><td>가야금은 현악기이다(넓음) · 회화는 캔버스에 붓으로 그린 그림이다(좁음)</td></tr>
+  <tr><td>② 본질적 의미를 담아야 한다 (내포)</td><td>인간은 두 발로 걷는 동물이다 · 거북선은 왜구를 물리친 비밀병기이다</td></tr>
+  <tr><td>③ 애매하거나 모호하면 안 된다</td><td>이 가을 ‘밤’은 아름답다 · 미니스커트는 짧은 치마</td></tr>
+  <tr><td>④ 편향된 의미를 담으면 안 된다 (= 설득적 정의 금지)</td><td>실업자는 게으르거나 무능해서 해고된 사람</td></tr>
+  <tr><td>⑤ 비유·은유로 쓰면 안 된다</td><td>광고는 합법적인 거짓말이다 · 책은 마음의 양식이다</td></tr>
+  <tr><td>⑥ 추상적·전문적 용어를 쓰면 안 된다</td><td>그물은 교선들 사이의 망상모형…</td></tr>
+  <tr><td>⑦ 순환하면 안 된다</td><td>심리학은 심리를 공부하는 학문 · 도박사는 도박을 하는 사람</td></tr>
+  <tr><td>⑧ 부정어를 쓰면 안 된다</td><td>고래는 물고기가 아니다 · 사각형은 삼각형이 아닌 다각형</td></tr>
+</table></div>
+<details class="q"><summary>연습: 어떤 결함인가?</summary><div class="a">
+<p>‘삼각형’은 세 변의 길이와 세 각이 같은 도형 → <b>너무 좁음</b>(정삼각형만) · ‘가난’은 부유하지 않은 상태 → <b>부정어</b> · ‘변호사’는 사회 쓰레기에 기생하는 청소부 → <b>편향</b> · ‘독’은 유독성을 가진 물질 → <b>순환</b></p>
+<p>[6]나 같은 규칙을 어긴 것: <b>④ ㄷ, ㅁ</b> — 버스 = 네 바퀴 운송수단(택시도 포함), 새 = 날개 가진 온혈동물(박쥐도 포함) → 둘 다 너무 넓음. (ㄱ 식물학자 순환, ㄴ 남자 편향, ㄹ 인간 = 십자말풀이 즐기는 동물 → 본질 아님)</p>
+</div></details>
+</section>
+
+<!-- ============================== 8 ============================== -->
+<section id="s8">
+<h2><span class="n">08</span>명제의 종류</h2>
+<div class="tbl"><table>
+  <tr><th style="width:16%">단순명제</th><td>더 나눌 수 없는 명제 (주어+술어 하나). 단칭(패티는 대학생이다) · 특칭(몇몇 대학생은 공대생이다) · 전칭(모든 공대생은 대학생이다)</td></tr>
+  <tr><th>복합명제</th><td>단순명제가 둘 이상 결합. 부정(~이 아니다) · 연언(그리고/지만) · 선언(또는) · 조건(만약 ~라면). 부정명제도 원래 명제를 바탕으로 하므로 복합명제.</td></tr>
+</table></div>
+<h3>필연 · 모순 · 우연명제</h3>
+<div class="tbl"><table>
+  <tr><th style="width:16%">필연명제</th><td>세계가 어떻든 <b>반드시 참</b>(거짓이 논리적으로 불가능). 단어 뜻만 분석해도 참. 세계에 대한 정보는 없음.</td><td>모든 누나는 여자다 · 유재석은 기혼이거나 미혼이다 · 할아버지라면 남자다</td></tr>
+  <tr><th>모순명제</th><td>세계가 어떻든 <b>반드시 거짓</b></td><td>유재석은 기혼인 동시에 미혼이다 · 내가 그린 정사각형은 둥글다</td></tr>
+  <tr><th>우연명제</th><td>세계가 어떻게 되느냐에 따라 참/거짓이 달라짐. <b>대부분의 명제</b>.</td><td>나는 경북대생이다 · 모래알에 싹이 튼다</td></tr>
+</table></div>
+<div class="box warn"><span class="bt">논리적 필연성 ≠ 법칙적 필연성</span>
+<p>논리학의 필연·가능은 <b>논리적</b> 필연·가능이다. 판별법: <b>“영화나 소설에 넣어도 말이 되나?”</b></p>
+<ul>
+  <li>펜이 하늘로 솟구친다, 스파이더맨이 실로 날아다닌다, 인천 앞바다가 사이다가 된다 → 자연법칙상 불가능하지만 <b>논리적으로 가능</b> → 우연명제</li>
+  <li>“누나가 남자인” 영화는 말이 안 된다 → 개념적 모순 → “모든 누나는 여자다”는 필연명제</li>
+  <li>“정지훈은 키가 크거나 작다”는 필연명제가 <b>아니다</b>. 크다/작다는 반대관계라 보통 키일 수 있음 → 우연명제.</li>
+</ul></div>
+<h3>사실명제 vs 가치명제</h3>
+<div class="tbl"><table>
+  <tr><th style="width:16%">사실명제</th><td>세계의 사실적 상태를 기술. <b>조사하면 참/거짓을 알 수 있음.</b></td><td>브로콜리는 영양소가 풍부하다 · 금은 귀금속이다 · <b>사람들은 외지인을 싫어한다</b> · 스토킹은 <b>불법</b>이다</td></tr>
+  <tr><th>가치명제</th><td>가치를 평가하거나 당위를 판단 (옳다, 좋다, 위대하다, ~해야 한다)</td><td>무고한 사람을 죽이는 것은 옳지 않다 · 돈은 귀중하다 · 아비뇽의 처녀들은 위대한 작품이다</td></tr>
+</table></div>
+<div class="box tip">함정: “사람들은 X가 최고라고 <b>생각한다</b>”, “사람들은 ~을 싫어한다”는 사람들의 마음 상태를 기술하므로 <b>사실명제</b>. (가치명제의 하위 분류는 구분할 필요 없음)</div>
+<details class="q"><summary>[6]다·라 정답</summary><div class="a">
+<p>다. 필연명제로 가장 적절한 것: <b>④ 어떤 사람이 할아버지라면 그는 남자이다</b> (① 크다/작다는 반대관계라 우연, ② 도쿄 올림픽은 실제 2021년 개최 → 우연, ③ 과학 법칙은 경험으로 앎 → 우연)</p>
+<p>라. 가치명제: <b>⑤ 자비는 찬양할만한 덕목이다</b> (나머지는 괴로워함·~라고 생각하는 사람이 많음·불법·머리 좋은 학생이 많음 → 사실명제)</p>
+</div></details>
+</section>
+
+<!-- ============================== 9 ============================== -->
+<section id="s9">
+<h2><span class="n">09</span>연역논증과 귀납논증 <span class="tag hot">정의 숙지</span></h2>
+<p>연역과 귀납은 <b>전제가 결론을 지지하는 정도</b>로 구분한다.</p>
+<div class="box def">
+<p><b class="k">연역논증</b> = 만일 전제가 모두 참이면, 결론도 참인 것이 <b>필연적인 것으로 제시된</b> 논증.<br>
+= 전제가 모두 참이면서 결론이 거짓인 것이 <b>불가능한 것으로 제시된</b> 논증. <span class="muted">(교수님: 두 번째가 더 정확, 둘 다 기억)</span></p>
+<p><b class="k">귀납논증</b> = 만일 전제가 모두 참이면, 결론이 참일 <b>개연성(또는 확률)이 높은 것으로 제시된</b> 논증.<br>
+= 전제가 모두 참이면서 결론이 거짓일 개연성(확률)이 낮은 것으로 제시된 논증.</p>
+</div>
+<div class="box warn"><span class="bt">함정 ① “연역 = 일반→특수, 귀납 = 특수→일반”은 틀린 정의</span>
+<ul>
+<li>특수→특수 연역도 있다: “철수는 짱구보다 크다. 짱구는 훈이보다 크다. ∴ 철수는 훈이보다 크다.”</li>
+<li>일반→특수 귀납도 있다: “사람의 99%는 100세 전에 죽는다. 철수는 사람이다. ∴ 철수는 100세 전에 죽을 것이다.”</li>
+</ul></div>
+<div class="box warn"><span class="bt">함정 ② 전제가 실제로 참인지는 따지지 않는다</span>
+<p>“올림픽은 항상 짝수 해에 열린다. ∴ 2021년에는 올림픽이 열리지 않았다.” → 실제로는 전제도 결론도 거짓이지만 <b>연역</b>. 전제를 참이라고 <b>가정하면</b> 결론이 거짓일 수 없기 때문.</p>
+<p>여기서 필연성은 <b>논리적</b> 필연성. “KTX가 5분 전에 동대구를 떠났다 ∴ 아직 서울에 도착 안 했다”는 영화에선 가능하니 <b>귀납</b>.</p></div>
+<h3>연역과 귀납의 차이</h3>
+<div class="tbl"><table>
+  <tr><th style="width:22%"></th><th>연역</th><th>귀납</th></tr>
+  <tr><td>확실성</td><td>있음. 전제를 받아들이면서 결론을 의심할 수 없음 (전제 긍정 + 결론 부정 = <b>모순</b>)</td><td>없음. 전제를 받아들여도 결론을 의심할 수 있음 (전제 긍정 + 결론 부정 = <b>일관적</b>)</td></tr>
+  <tr><td>결론의 내용</td><td>전제에 <b>이미 포함</b> → 지식의 확장 없음</td><td>전제를 <b>넘어섬</b> → 진정한 지식의 확장</td></tr>
+  <tr><td>평가</td><td>타당 / 부당 (전부 아니면 전무)</td><td>강함 / 약함 (정도의 문제)</td></tr>
+  <tr><td>표현 힌트</td><td>“반드시 ~이다”</td><td>“아마도 ~일 것이다”, “대부분”, “대체로”, “지금까지 관찰된”</td></tr>
+</table></div>
+<figure><svg class="dg" viewBox="0 0 560 150" role="img" aria-label="연역과 귀납의 평가">
+<text class="b" x="16" y="34">연역</text>
+<line class="st" x1="80" y1="30" x2="530" y2="30"/>
+<circle cx="80" cy="30" r="9" style="fill:var(--no)"/><circle cx="530" cy="30" r="9" style="fill:var(--ok)"/>
+<text class="mid noc b" x="92" y="58">0 = 부당</text><text class="mid okc b" x="518" y="58">1 = 타당</text>
+<text class="mid mut" x="305" y="58" style="font-size:12px">중간 없음 (전부 아니면 전무)</text>
+<text class="b" x="16" y="104">귀납</text>
+<rect x="80" y="94" width="450" height="18" rx="9" style="fill:url(#grad-vague);stroke:var(--line);transform:scaleX(-1);transform-origin:305px 103px"/>
+<text class="mid" x="100" y="136">약하다</text><text class="mid" x="510" y="136">강하다</text>
+<text class="mid mut" x="305" y="136" style="font-size:12px">정도의 문제 (더 강하다/약하다)</text>
+</svg><figcaption>타당/부당은 연역에만 쓰는 말. 귀납은 강함/약함으로 평가한다.</figcaption></figure>
+<div class="box tip">주의: 논증에 대해 “참이다”라고 하지 않는다. <b>명제</b>는 참/거짓, <b>논증</b>은 타당/부당(연역) 또는 강함/약함(귀납).</div>
+<details class="q"><summary>연습: 연역? 귀납? (강의자료 26~29쪽)</summary><div class="a">
+<div class="tbl"><table>
+<tr><td>모든 20대 남성은 온라인 게임을 즐긴다 ∴ 20대 남성 철수도 즐긴다</td><td><b>연역</b></td></tr>
+<tr><td>20대 남성의 95%는 해봤다 ∴ 철수도 해봤을 것이다</td><td>귀납</td></tr>
+<tr><td>KTX가 5분 전 동대구 출발 ∴ 아직 서울역 도착 안 함 / 이틀 동안 숨을 안 쉼 ∴ 죽었다</td><td>귀납</td></tr>
+<tr><td>BTS 7명, 레드벨벳 5명 ∴ BTS가 더 많다</td><td><b>연역</b></td></tr>
+<tr><td>지금까지 모든 것이 중력 법칙을 따랐다 ∴ 미래에도 그럴 것이다</td><td>귀납</td></tr>
+<tr><td>물속 생물 대부분은 어류다. 인어도 물속에 산다 ∴ 인어는 어류다</td><td>귀납</td></tr>
+<tr><td>뉴욕도서관 편람 / 파로호 주민 84% / 루피는 10살이라 1km를 1분에 못 달린다</td><td>귀납</td></tr>
+<tr><td>모든 여우는 100% 젖으로 키운다 ∴ 붉은여우도</td><td><b>연역</b></td></tr>
+<tr><td>대머리는 유전이거나 환경 때문이다. 환경 때문이 아니다 ∴ 유전이다</td><td><b>연역</b></td></tr>
+<tr><td>목격자: 강도는 키 크고 마름 / 흔적 없음 ∴ 비밀번호를 알았다 / 독버섯을 먹었다 ∴ 사망 원인</td><td>귀납</td></tr>
+</table></div>
+<p>[6] 지지 정도가 다른 하나: <b>④ 올림픽 짝수 해</b> (나머지는 귀납. ⑤ “지금까지 <b>관찰된</b> 모든 까마귀”는 귀납)</p>
+<p>[6] 참/거짓: 1) 결론이 전제 내용 이상을 주장하면 귀납 <b>참</b> · 2) 특수→특수 연역도 있다 <b>참</b> · 3) 귀납은 반드시 개별→일반 <b>거짓</b> · 4) 약한 귀납을 “부당한 귀납”이라 한다 <b>거짓</b></p>
+<p>[7]가 바르게 말한 것: <b>② 귀납논증은 전제가 모두 참이어도 결론이 거짓일 수 있다</b> (① “연역의 결론은 반드시 참”은 ‘전제가 참이라면’이 빠져서 틀림)</p>
+<p>[7]나 연역을 모두 고르면: <b>③ 심장 가진 동물은 예외 없이 심장병 ∴ 호랑이도, ④ 못된 송아지는 엉덩이에 뿔 ∴ 이 동물도</b></p>
+</div></details>
+</section>
+
+<!-- ============================== 10 ============================== -->
+<section id="s10">
+<h2><span class="n">10</span>타당성과 건전성 <span class="tag hot">평가 문제 출제</span></h2>
+<div class="grid2">
+<div class="box def"><b class="k">타당하다</b> = 전제가 참이라는 <b>가정 하에</b> 결론도 필연적으로 참이어야 하는 것. = 전제가 모두 참이면서 결론이 거짓인 경우가 <b>불가능</b>. <span class="easy">(논리적으로 흠잡을 데 없음)</span></div>
+<div class="box def"><b class="k">건전하다</b> = 타당하고 + 전제가 <b>실제로</b> 모두 참. <br><b>건전성 = 타당성 + 전제 참</b></div>
+</div>
+<figure><svg class="dg" viewBox="0 0 520 230" role="img" aria-label="타당성과 건전성 평가 순서">
+<rect class="fill-paper" x="195" y="8" width="130" height="38" rx="10"/><text class="mid b" x="260" y="32">연역논증</text>
+<path class="st" d="M240 48 L140 82" marker-end="url(#arr)"/><path class="st" d="M280 48 L380 82" marker-end="url(#arr)"/>
+<rect class="fill-ok" x="80" y="84" width="120" height="36" rx="10"/><text class="mid b" x="140" y="107">타당함</text>
+<rect class="fill-no" x="320" y="84" width="140" height="36" rx="10"/><text class="mid b" x="390" y="107">타당하지 않음</text>
+<path class="st" d="M120 122 L70 156" marker-end="url(#arr)"/><path class="st" d="M160 122 L230 156" marker-end="url(#arr)"/>
+<text class="mid" x="62" y="172" style="font-size:12.5px">전제가 실제로</text><text class="mid" x="62" y="188" style="font-size:12.5px">모두 참</text>
+<text class="mid" x="245" y="172" style="font-size:12.5px">거짓인 전제가</text><text class="mid" x="245" y="188" style="font-size:12.5px">하나라도 있음</text>
+<path class="st" d="M62 194 L62 200"/>
+<rect class="fill-ok" x="12" y="198" width="100" height="28" rx="8"/><text class="mid b" x="62" y="217">건전함</text>
+<path class="st" d="M285 192 C 320 205, 330 210, 352 210" marker-end="url(#arr)"/><path class="st" d="M390 122 L390 196" marker-end="url(#arr)"/>
+<rect class="fill-no" x="340" y="198" width="120" height="28" rx="8"/><text class="mid b" x="400" y="217">건전하지 않음</text>
+</svg><figcaption>건전성 = 타당성 + 전제가 실제로 참. 타당하지 않으면 바로 ‘건전하지 않음’.</figcaption></figure>
+<div class="tbl"><table>
+  <tr><th>실제 상황</th><th>타당한 논증에서 가능?</th><th>예</th></tr>
+  <tr><td>전제 모두 참, 결론 참</td><td class="ok">가능 (이것만으로 타당이 보장되진 않음)</td><td>모든 고래는 포유류, 모든 포유류는 어미젖을 먹음 ∴ 모든 고래는 어미젖을 먹음 (타당·건전)</td></tr>
+  <tr><td><b>전제 모두 참, 결론 거짓</b></td><td class="no">불가능</td><td>— 이런 타당한 논증은 없다</td></tr>
+  <tr><td>거짓 전제 있음, 결론 참</td><td class="ok">가능</td><td>모든 사람은 돼지다, 모든 돼지는 사유 능력이 있다 ∴ 모든 사람은 사유 능력이 있다</td></tr>
+  <tr><td>거짓 전제 있음, 결론 거짓</td><td class="ok">가능</td><td>연예인은 모두 소설가다, 아이유는 연예인이다 ∴ 아이유는 소설가다 (타당, 비건전)</td></tr>
+</table></div>
+<div class="box warn"><span class="bt">자주 틀리는 포인트</span>
+<ul>
+  <li><b>전제와 결론이 모두 참이어도 부당할 수 있다.</b> “고래는 모두 동물이다. 포유류는 모두 동물이다. ∴ 고래는 모두 포유류다.” / “모든 금메달리스트는 운동선수다. 오상욱은 운동선수다. ∴ 오상욱은 금메달리스트다.”</li>
+  <li>타당성을 따질 때는 전제가 <b>실제로</b> 참인지 고려하지 않는다. 건전성을 따질 때 고려한다.</li>
+  <li><b>타당하지 않으면 바로 건전하지 않다</b>고 판단할 수 있다. (“건전성은 알 수 없다”가 아님)</li>
+  <li>건전하지 않은 논증이 꼭 거짓 전제를 가진 건 아니다. 전제가 다 참이어도 부당하면 건전하지 않다.</li>
+  <li>건전한 논증의 결론은 반드시 참. 부당한 논증의 결론도 실제로는 참일 수 있다(받아들일 수 있다).</li>
+  <li><b>귀납논증의 타당성을 평가하라고 하면:</b> “타당하지 않고, 그래서 건전하지 않다.” (교수님: 기억할 것)</li>
+</ul></div>
+<details class="q"><summary>트럼프 예제 (강의자료 30쪽)</summary><div class="a">
+<div class="tbl"><table>
+<tr><td>트럼프는 할아버지다 ∴ 남자다</td><td>타당 · 건전</td></tr>
+<tr><td>트럼프는 남자다 ∴ 할아버지다</td><td>부당 → 건전 X (전제·결론이 실제로 참이어도)</td></tr>
+<tr><td>트럼프는 할머니다 ∴ 여자다</td><td>타당 · 건전 X (전제가 거짓)</td></tr>
+<tr><td>트럼프는 여자다 ∴ 할머니다</td><td>부당 · 건전 X</td></tr>
+</table></div></div></details>
+<details class="q"><summary>연습: 타당성과 건전성을 평가하라 (강의자료 30쪽)</summary><div class="a">
+<div class="tbl"><table>
+<tr><td>1) 내일은 달이 뜰 것이다. 어제도 그저께도 떴으니까</td><td>귀납 → <b>타당 X, 건전 X</b></td></tr>
+<tr><td>2) 소녀시대 멤버는 모두 9명이다 ∴ 같은 요일에 태어난 사람이 적어도 2명이다</td><td><b>타당, 건전 X</b> (요일은 7개라 타당. 실제 멤버는 8명 → 전제 거짓)</td></tr>
+<tr><td>3) 2024 올림픽은 파리나 베를린, 베를린 아님 ∴ 파리</td><td><b>타당, 건전</b></td></tr>
+<tr><td>4) 모든 사람은 동물이다 ∴ 모든 동물은 사람이다</td><td><b>타당 X, 건전 X</b></td></tr>
+<tr><td>5) 서울은 한국의 수도다 ∴ 한국의 수도는 서울이다</td><td><b>타당, 건전</b> (외연이 같음)</td></tr>
+<tr><td>6) 난로에 손을 대는 건 어리석다. 아주 뜨거우니까</td><td><b>타당 X, 건전 X</b></td></tr>
+<tr><td>7) 물은 높은 곳에서 낮은 곳으로 흐른다. 강물도 물이다 ∴ 강물도 그렇다</td><td><b>타당, 건전</b></td></tr>
+<tr><td>8) 모든 곤충은 다리가 6개다 ∴ 앞으로 관찰될 곤충도 6개일 것이다</td><td><b>타당, 건전</b> (“모든”이라 미래 곤충도 포함. “지금까지 관찰된 모든”과 다름)</td></tr>
+</table></div>
+<p>[8]가 옳은 것 2개: <b>① 건전한 논증은 항상 타당하다, ③ 건전한 논증의 결론은 거짓일 수 없다</b> (② 타당한 논증도 거짓 전제+참 결론 가능, ④ 전제가 참인데 부당해서 건전하지 않을 수도, ⑤ 오상욱 예)</p>
+<p>연역논증 설명 중 적절하지 않은 것: <b>④ 타당성을 따질 때 전제가 실제로 참인지 고려해야 한다</b> (지난 학기 1번 문제)</p>
+</div></details>
+</section>
+
+<!-- ============================== 11 ============================== -->
+<section id="s11">
+<h2><span class="n">11</span>명제 사이의 관계</h2>
+<div class="tbl"><table>
+  <tr><th style="width:18%">논리적 함축</th><td>p가 참이면서 q가 거짓인 것이 불가능 = <b>p를 전제, q를 결론으로 하는 논증이 타당</b> (타당의 다른 표현)</td></tr>
+  <tr><th>논리적 동치</th><td>p가 q를 함축하고 q도 p를 함축. 진리값이 항상 같음 = 같은 의미. 대표 예: <b>대우</b> (p→q ≡ ~q→~p)</td></tr>
+  <tr><th>모순관계</th><td><b>동시에 참일 수도, 동시에 거짓일 수도 없음.</b> (p와 ~p) 정확히 하나만 참.</td></tr>
+  <tr><th>반대관계</th><td><b>동시에 참일 수는 없지만, 동시에 거짓일 수는 있음.</b> (중간값이 있음)</td></tr>
+  <tr><th>일관적</th><td>모두 <b>동시에 참일 수 있음</b> (= 양립 가능, 무모순적). 헷갈리면 진리표를 그려서 동시에 T인 행이 있는지 본다.</td></tr>
+</table></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="dg" viewBox="0 0 280 120" role="img" aria-label="모순관계">
+<text class="mid b" x="140" y="22" style="font-size:15px">모순관계</text>
+<rect class="fill-acc" x="20" y="40" width="120" height="40" rx="8"/><text class="mid" x="80" y="65">키가 작다</text>
+<rect class="fill-ok" x="140" y="40" width="120" height="40" rx="8"/><text class="mid" x="200" y="65">작지 않다</text>
+<text class="mid mut" x="140" y="106" style="font-size:12px">빈틈 없음 → 반드시 딱 하나만 참</text>
+</svg><figcaption>동시에 참 ✗ · 동시에 거짓 ✗ (p와 ~p)</figcaption></figure></div>
+<div class="fig-card"><figure><svg class="dg" viewBox="0 0 280 120" role="img" aria-label="반대관계">
+<text class="mid b" x="140" y="22" style="font-size:15px">반대관계</text>
+<rect class="fill-acc" x="20" y="40" width="84" height="40" rx="8"/><text class="mid" x="62" y="65">키가 크다</text>
+<rect x="104" y="40" width="72" height="40" style="fill:var(--code);stroke:var(--line)"/><text class="mid mut" x="140" y="65" style="font-size:12px">보통</text>
+<rect class="fill-ok" x="176" y="40" width="84" height="40" rx="8"/><text class="mid" x="218" y="65">키가 작다</text>
+<text class="mid mut" x="140" y="106" style="font-size:12px">중간값이 있음 → 둘 다 거짓일 수 있음</text>
+</svg><figcaption>동시에 참 ✗ · 동시에 거짓 ○ (머리카락 5개/7개)</figcaption></figure></div></div>
+<div class="box tip">모순<b>명제</b>(문장 1개: “나는 나보다 키가 크다”)와 모순<b>관계</b>(문장 2개)를 구분. 그리고 “p가 참이면 q가 거짓”까지만 보고 모순이라 하지 말 것 — <b>“p가 거짓이면 q가 참”</b>까지 성립해야 모순관계.</div>
+<details class="q"><summary>연습: 일관적? 모순? 반대? (강의자료 31쪽)</summary><div class="a">
+<div class="tbl"><table>
+<tr><td>1) 나는 키가 5m보다 크다</td><td>일관적 (참인 경우 상상 가능)</td></tr>
+<tr><td>2) 나는 나보다 키가 크다</td><td>모순명제</td></tr>
+<tr><td>3) 내 머리카락 수는 5개이면서 동시에 5개가 아니다</td><td>모순명제</td></tr>
+<tr><td>4) 5m보다 크다 / 7m보다 크다</td><td>일관적</td></tr>
+<tr><td>5) 영희보다 작지 않다 / 영희보다 크지 않다</td><td>일관적 (키가 같으면 둘 다 참)</td></tr>
+<tr><td>6) 테슬라 주식은 이익이다 / 손해다</td><td>반대관계</td></tr>
+<tr><td>7) 머리카락 5개다 / 5개가 아니다</td><td>모순관계</td></tr>
+<tr><td>8) 머리카락 5개다 / 7개다</td><td>반대관계 (6개면 둘 다 거짓)</td></tr>
+</table></div>
+<p>[11]마 일관적 관계인 쌍: <b>③ 홍길동은 애국자이거나 방관자이다 / 애국자가 아니거나 방관자이다</b> (방관자이면 둘 다 참. ①②④ 모순, ⑤ 어렵다/쉽다 반대) — 기말에 나왔던 문제</p>
+</div></details>
+</section>
+
+<!-- ============================== 12 ============================== -->
+<section id="s12">
+<h2><span class="n">12</span>논리연결사와 진리표</h2>
+<div class="tbl"><table>
+  <tr><th>기호</th><th>뜻</th><th>일상어</th></tr>
+  <tr><td><span class="sym">~p</span></td><td>p가 아니다</td><td>~은 아니다, ~은 사실이 아니다, ~은 거짓이다</td></tr>
+  <tr><td><span class="sym">p∧q</span></td><td>p 그리고 q</td><td>그리고, 그러나, ~지만, ~인데, <b>그럼에도 불구하고</b> (뉘앙스는 무시, 시간 순서도 표현 못함)</td></tr>
+  <tr><td><span class="sym">p∨q</span></td><td>p 또는 q</td><td>혹은, 또는, ~이거나</td></tr>
+  <tr><td><span class="sym">p→q</span></td><td>p이면 q (p 전건, q 후건)</td><td>만약 p라면 q이다</td></tr>
+</table></div>
+<div class="tbl"><table class="tt">
+  <tr><th>p</th><th>q</th><th>~p</th><th>p∧q</th><th>p∨q (포괄)</th><th>배타적 선언</th><th>p→q</th></tr>
+  <tr><td>T</td><td>T</td><td>F</td><td class="hl">T</td><td>T</td><td class="bad">F</td><td>T</td></tr>
+  <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td>T</td><td class="bad">F</td></tr>
+  <tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+  <tr><td>F</td><td>F</td><td>T</td><td>F</td><td class="bad">F</td><td>F</td><td>T</td></tr>
+</table></div>
+<ul>
+  <li><b>∧</b>: 둘 다 참일 때만 참. (아빠가 폰도 사주고 여행도 보내준다고 했는데 하나만 하면 거짓말)</li>
+  <li><b>∨</b>: 둘 다 거짓일 때만 거짓. <b>아무 말이 없으면 포괄적</b>(둘 다 참도 OK). 문제에서 “배타적으로” 보라고 할 때만 둘 다 참을 F로.</li>
+  <li><b>→</b>: <b>전건 T, 후건 F일 때만 거짓.</b> 전건이 거짓이면 무조건 참. (A+ 받으면 여행 보내준다고 했는데, A+를 못 받았으면 거짓말한 게 아님)</li>
+</ul>
+<div class="box tip">계산 요령: 일부 진리값을 몰라도 <b>∧에 F가 하나</b> 있으면 F, <b>∨에 T가 하나</b> 있으면 T, <b>→의 전건이 F이거나 후건이 T</b>이면 T.</div>
+<details class="q"><summary>연습: A, B, C 참 / X, Y, Z 거짓 (강의자료 34쪽)</summary><div class="a">
+<div class="tbl"><table class="tt">
+<tr><td style="text-align:left">1) ~A∨B</td><td>F∨T</td><td><b>T</b></td></tr>
+<tr><td style="text-align:left">2) (A∧X)∨(B∧Y)</td><td>F∨F</td><td><b>F</b></td></tr>
+<tr><td style="text-align:left">3) ~(X∧~Y)∨(B∧~C)</td><td>~(F∧T)∨(T∧F) = T∨F</td><td><b>T</b></td></tr>
+<tr><td style="text-align:left">4) ~(X∨Z)∧(~X∨Z)</td><td>T∧T</td><td><b>T</b></td></tr>
+<tr><td style="text-align:left">5) ~[(A∧B)∨~(B∧A)]</td><td>~[T∨F]</td><td><b>F</b></td></tr>
+<tr><td style="text-align:left">6) (A→B)→Z</td><td>T→F</td><td><b>F</b></td></tr>
+<tr><td style="text-align:left">7) X→(Y→Z)</td><td>전건 F</td><td><b>T</b></td></tr>
+<tr><td style="text-align:left">8) [A→(X∧Y)]→[(A→X)∨(A→Y)]</td><td>전건 T→F = F</td><td><b>T</b></td></tr>
+</table></div>
+<p>A, B 참 / X, Y 거짓 / P, Q 모름: 1) ~(Q→B)∧(A∨~Y) → Q→B는 후건이 T라 T, ~T = F → <b>F</b> · 2) [(~A→~Y)∨Q]→(B→Y) → 앞은 T, 뒤는 T→F = F → <b>F</b> · 3) (Q∧~A)∨(P→Y) → 앞은 F, 뒤는 P에 따라 달라짐 → <b>알 수 없음</b></p>
+<p>[8] 참인 것 하나 (A, B 참 / X, Y 거짓): <b>① ~(A→X)</b> = ~(T→F) = ~F = T</p>
+<p>역사 지식: “아인슈타인이 아스피린을 발견한 게 아니라면, 히틀러는 2차 대전을 일으켰고 린드버그는 대서양을 건넜다” → T→(T∧T) = <b>참</b> / “닉슨이 사임했거나 에디슨이 전화기를 발명했다는 게 사실이 아니라면, 처칠은 수상이었다” → ~(T∨F)→T = F→T = <b>참</b></p>
+</div></details>
+</section>
+
+<!-- ============================== 13 ============================== -->
+<section id="s13">
+<h2><span class="n">13</span>일상어를 기호로 바꾸기 <span class="tag must">계속 나옴</span></h2>
+<h3>조건문의 여러 얼굴 — 모두 <span class="sym">p → q</span></h3>
+<figure><svg class="dg" viewBox="0 0 520 190" role="img" aria-label="충분조건과 필요조건">
+<ellipse class="fill-paper" cx="140" cy="96" rx="125" ry="82"/><text class="mid b" x="140" y="34">직사각형 (q)</text>
+<ellipse class="fill-acc" cx="140" cy="112" rx="58" ry="42"/><text class="mid b" x="140" y="117">정사각형 (p)</text>
+<text x="290" y="48" class="b">p → q : 정사각형이면 직사각형이다</text>
+<text x="290" y="78">· 안쪽 p = <tspan class="acc b">충분조건</tspan> (p이기만 하면 q)</text>
+<text x="290" y="104">· 바깥 q = <tspan class="okc b">필요조건</tspan> (q가 아니면 p도 아님)</text>
+<text x="290" y="130">· = 오직 직사각형인 경우에만 정사각형</text>
+<text x="290" y="156">· = 직사각형이 아니면 정사각형이 아니다</text>
+</svg><figcaption>작은 원이 큰 원 안에 있다: 안쪽에 있으면 반드시 바깥에도 있다.</figcaption></figure>
+<div class="tbl"><table>
+  <tr><th>일상어</th><th>기호</th></tr>
+  <tr><td>만약 p이면 q이다</td><td><span class="sym">p→q</span></td></tr>
+  <tr><td>p는 q의 <b>충분조건</b>이다</td><td><span class="sym">p→q</span></td></tr>
+  <tr><td>q는 p의 <b>필요조건</b>이다</td><td><span class="sym">p→q</span></td></tr>
+  <tr><td>q가 아니면 p가 아니다 (대우)</td><td><span class="sym">~q→~p</span> = <span class="sym">p→q</span></td></tr>
+  <tr><td><b>오직 q인 경우에만 p</b> / <b>q인 경우에만 p</b> / q여야만 p</td><td><span class="sym">p→q</span> (= ~q→~p)</td></tr>
+  <tr><td>q인 경우에 p (‘만’이 없음)</td><td><span class="sym">q→p</span></td></tr>
+</table></div>
+<div class="box warn"><span class="bt">교수님 암기법: “오직 ~만”이 나오면 앞 부정, 뒤 부정</span>
+<p>“<u>출석을 3/4 이상 하는</u> 경우에만 <u>성적을 받는다</u>” → <b>~출석 → ~성적</b> (= 성적 → 출석). <br>출석 → 성적 (×) : 출석만 했다고 성적을 주는 게 아니다. 출석은 <b>필요조건</b>.</p>
+<p>“60세가 넘은 경우에만 지하철 무료” → ~60세 → ~무료 (= 무료 → 60세)</p></div>
+<h3>그 밖의 기호화</h3>
+<div class="tbl"><table>
+  <tr><th>일상어</th><th>기호</th></tr>
+  <tr><td>p와 q가 <b>다 ~인 것은 아니다</b></td><td><span class="sym">~(p∧q)</span> = <span class="sym">~p∨~q</span> (둘 중 적어도 하나는 아님. “둘 다 아니다”가 아님!)</td></tr>
+  <tr><td>p도 q도 아니다 (p나 q나 ~가 아니다)</td><td><span class="sym">~(p∨q)</span> = <span class="sym">~p∧~q</span></td></tr>
+  <tr><td>p나 q 중 <b>하나만</b></td><td><span class="sym">(p∨q)∧~(p∧q)</span> (XOR 같은 기호 쓰지 말 것)</td></tr>
+  <tr><td>“~라는 것은 사실이 아니다” (문장 끝)</td><td>문장 <b>전체</b>에 ~</td></tr>
+</table></div>
+<p class="easy">기호화 요령: 단순명제는 <b>긍정문</b>으로 정하고(예: q = “비리를 해소한다”) 부정은 ~를 붙인다.</p>
+<details class="q"><summary>연습: 기호화하라 (강의자료 36~37쪽)</summary><div class="a">
+<ol>
+<li>갑수가 금감원장이 되었다. 그럼에도 비리를 해소하지 못할 것이다 → <span class="sym">갑수∧~해소</span></li>
+<li>이윤이 증가하면 세금이 오른다 → <span class="sym">이윤→세금</span></li>
+<li>비가 오고 우산이 없으면 젖는다 → <span class="sym">(비∧~우산)→젖음</span></li>
+<li>을수가 숙제를 했다면 검사 안 하고, 안 했다면 칠판에 풀게 한다 → <span class="sym">(숙제→~검사)∧(~숙제→칠판)</span></li>
+<li>슬픔을 나눌 가족이 있거나 즐거움을 나눌 친구가 있다면 행복하다 → <span class="sym">(가족∨친구)→행복</span></li>
+<li>너와 내가 다 선물을 받은 것은 아니다 → <span class="sym">~(너∧나)</span> = <span class="sym">~너∨~나</span></li>
+<li>내일 비가 온다면, 오직 야외 개최인 경우에만 모임이 취소된다 → <span class="sym">비→(취소→야외)</span> = <span class="sym">비→(~야외→~취소)</span></li>
+<li>너나 나나 책임이 없고 그가 책임이 있다는 것은 사실이 아니다 → <span class="sym">~(~너∧~나∧그)</span></li>
+<li>네가 잘못을 했음에도 불구하고 내가 책임을 지겠다 → <span class="sym">잘못∧책임</span></li>
+<li>경찰차 경보음이나 119 경보음 중 하나만 울렸다 → <span class="sym">(경찰∨119)∧~(경찰∧119)</span></li>
+</ol>
+<p>좋은 성적은 장학금의 필요조건 → <span class="sym">장학금→성적</span> · 오직 경북대생만 똑똑하다 → <span class="sym">똑똑→경북대생</span></p>
+</div></details>
+<details class="q"><summary>연습: 조건문이 거짓일 때 / 반드시 참인 것 (강의자료 37~38쪽)</summary><div class="a">
+<p><b>과방:</b> “영희가 과방에 없으면 수민이도 없을 것”이 거짓 → 전건(영희 없음) T, 후건(수민 없음) F → <b>영희는 없고 수민이는 있다.</b></p>
+<p><b>초신성:</b> 초신성→멸종, ~초신성∨~멸종 둘 다 참 → 진리표에서 둘 다 T인 행은 초신성=F인 두 행 → <b>초신성은 (10광년 이내에서) 발생하지 않는다.</b> 멸종 여부는 알 수 없음.</p>
+<p><b>시장감:</b> 철수 “갑돌이나 을순이나 시장감이 아니야” ~(갑∨을), 영희 “그렇지 않아!” → <b>갑∨을</b> → 반드시 참: <b>③ 갑돌이 시장감이 아니라면 을순이 시장감이다.</b> (② “오직 한 사람만”은 포괄적 선언이라 X, ④도 X)</p>
+<p><b>철수/유리(10/7):</b> “철수가 A를 받았다면 유리는 못 받았다”(철수→~유리)가 거짓 → <b>둘 다 A를 받았다</b> (철수∧유리). 조건문의 부정: <span class="sym">~(p→q) = p∧~q</span></p>
+</div></details>
+</section>
+
+<!-- ============================== 14 ============================== -->
+<section id="s14">
+<h2><span class="n">14</span>타당한 형식 · 부당한 형식</h2>
+<p class="muted">형식의 <b>이름은 시험에 안 나온다</b>. 모양을 보고 타당/부당만 바로 판단할 수 있으면 된다.</p>
+<div class="grid2">
+<div>
+<h4 class="ok">○ 타당 (외워 두기)</h4>
+<div class="tbl"><table class="tt">
+<tr><td>p→q, p</td><td>∴ q</td></tr>
+<tr><td>p→q, ~q</td><td>∴ ~p</td></tr>
+<tr><td>p→q, q→r</td><td>∴ p→r</td></tr>
+<tr><td>p∨q, ~p</td><td>∴ q</td></tr>
+<tr><td>p∧q</td><td>∴ p (또는 q)</td></tr>
+<tr><td>p, q</td><td>∴ p∧q</td></tr>
+<tr><td>p</td><td>∴ p∨q</td></tr>
+<tr><td>p∨r, p→q, r→s</td><td>∴ q∨s</td></tr>
+<tr><td>p∨r, p→q, r→q</td><td>∴ q</td></tr>
+<tr><td>p→q, p→~q</td><td>∴ ~p</td></tr>
+</table></div>
+</div>
+<div>
+<h4 class="no">× 부당 (함정)</h4>
+<div class="tbl"><table class="tt">
+<tr><td>p→q, ~p</td><td>∴ ~q</td><td class="muted">반례 p=F,q=T</td></tr>
+<tr><td>p→q, q</td><td>∴ p</td><td class="muted">반례 p=F,q=T</td></tr>
+<tr><td>p∨q, p</td><td>∴ ~q</td><td class="muted">p=T,q=T</td></tr>
+<tr><td>p→q, r→q</td><td>∴ p→r</td><td class="muted">같은 곳 도착</td></tr>
+<tr><td>p→q, q→r</td><td>∴ r→p</td><td class="muted">역</td></tr>
+<tr><td>p→q</td><td>∴ q→p</td><td class="muted">역은 동치 X</td></tr>
+</table></div>
+<p class="easy">p∨q, p ∴ ~q는 우리 수업에서는 <b>부당</b>(포괄적 선언이라 q도 참일 수 있음). 문제에서 “배타적”이라고 하면 타당.</p>
+</div></div>
+<figure><svg class="dg" viewBox="0 0 540 150" role="img" aria-label="가정적 삼단논법의 매개">
+<text class="b okc" x="10" y="26">타당: 꼬리가 이어짐</text>
+<rect class="fill-paper" x="10" y="38" width="70" height="34" rx="8"/><text class="mid" x="45" y="60">p</text>
+<path class="st-ok" d="M82 55 L150 55" marker-end="url(#arr-ok)"/>
+<rect class="fill-ok" x="152" y="38" width="70" height="34" rx="8"/><text class="mid b" x="187" y="60">q</text>
+<path class="st-ok" d="M224 55 L292 55" marker-end="url(#arr-ok)"/>
+<rect class="fill-paper" x="294" y="38" width="70" height="34" rx="8"/><text class="mid" x="329" y="60">r</text>
+<text x="380" y="60">∴ p → r</text>
+<text class="b noc" x="10" y="104">부당: 같은 곳에 도착만 함</text>
+<rect class="fill-paper" x="10" y="112" width="70" height="34" rx="8"/><text class="mid" x="45" y="134">p</text>
+<path class="st-no" d="M82 129 L150 129" marker-end="url(#arr-no)"/>
+<rect class="fill-no" x="152" y="112" width="70" height="34" rx="8"/><text class="mid b" x="187" y="134">q</text>
+<path class="st-no" d="M292 129 L224 129" marker-end="url(#arr-no)"/>
+<rect class="fill-paper" x="294" y="112" width="70" height="34" rx="8"/><text class="mid" x="329" y="134">r</text>
+<text x="380" y="134">∴ p → r ✗</text>
+</svg><figcaption>앞 전제의 뒤(후건) = 다음 전제의 앞(전건)일 때만 이어진다. 안 이어지면 대우를 한 번 써 본다.</figcaption></figure>
+<div class="box tip"><span class="bt">진리표로 타당성 검증하는 법</span>
+<ol>
+<li>단순명제가 n개면 2<sup>n</sup>개 행을 다 쓴다 (2개 → 4행, 3개 → 8행).</li>
+<li>전제 열과 결론 열을 계산한다.</li>
+<li><b>전제가 모두 T인 행만</b> 본다.</li>
+<li>그 행에서 결론이 F인 행이 하나라도 있으면 <b>부당</b>, 없으면 <b>타당</b>.</li>
+</ol></div>
+<div class="tbl"><table class="tt">
+<tr><th>p</th><th>q</th><th>p→q</th><th>~p</th><th>~q</th><th>판단 (p→q, ~p ∴ ~q)</th></tr>
+<tr><td>T</td><td>T</td><td>T</td><td>F</td><td>F</td><td class="muted">전제 하나가 F → 안 봄</td></tr>
+<tr><td>T</td><td>F</td><td>F</td><td>F</td><td>T</td><td class="muted">안 봄</td></tr>
+<tr class="bad"><td>F</td><td>T</td><td>T</td><td>T</td><td>F</td><td>전제 모두 T인데 결론 F → <b>부당!</b></td></tr>
+<tr class="hl"><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td><td>전제 모두 T, 결론 T</td></tr>
+</table></div>
+<details class="q"><summary>연습: 타당한가? (강의자료 41~42쪽 · “제가 문제를 내면 이런 문제”)</summary><div class="a">
+<div class="tbl"><table>
+<tr><td>1) 동남풍이 안 불면 공격 안 함. 공격을 명함 ∴ 동남풍이 분다</td><td>~동→~공, 공 ∴ 동</td><td class="ok">타당</td></tr>
+<tr><td>2) 내가 너라면 공부한다. 나는 네가 아니다 ∴ 공부 안 한다</td><td>너→공, ~너 ∴ ~공</td><td class="no">부당</td></tr>
+<tr><td>3) 진실이면 보도됐을 것. 진실 아님 ∴ 보도 안 됨</td><td>진→보, ~진 ∴ ~보</td><td class="no">부당</td></tr>
+<tr><td>4) 비논리적이면 감정적. 감정적이다 ∴ 비논리적</td><td>비→감, 감 ∴ 비</td><td class="no">부당</td></tr>
+<tr><td>5) 라오스에 안 갔다. 보람차게 보내려 했다면 갔을 것 ∴ 보람차게 못 보냄</td><td>보→라, ~라 ∴ ~보</td><td class="ok">타당</td></tr>
+<tr><td>6) 자유주의자→행복 중시→깨달음→결혼 반대 안 함</td><td>사슬로 이어짐</td><td class="ok">타당</td></tr>
+<tr><td>7) 협력하면 화목. 화목할 리 없다. 협력 안 하니까 (결론이 앞!)</td><td>협→화, ~협 ∴ ~화</td><td class="no">부당</td></tr>
+<tr><td>8) 수업 참석 또는 축제. 수업 불참 ∴ 축제</td><td>수∨축, ~수 ∴ 축</td><td class="ok">타당</td></tr>
+<tr><td>9) 자신에 대한 의무가 있다면 놓아줄 수 있다. 아무도 못 놓아줌 ∴ 의무 없음</td><td>의→놓, ~놓 ∴ ~의</td><td class="ok">타당</td></tr>
+<tr><td>10) 거짓말 또는 모름. 거짓말하면 얼굴 빨개짐. 안 빨개짐 ∴ 모름</td><td>~빨→~거짓, 거짓∨모름</td><td class="ok">타당</td></tr>
+</table></div>
+<p>[8]가 (가)~(마) 평가로 옳지 못한 것: <b>④ ‘라’는 건전성을 판단할 수 없지만 타당하다</b> → ‘대체로’ 귀납이라 타당 X, 그래서 건전 X.</p>
+<p>[8]다: <b>② ㄱ, ㄴ</b> (ㄱ 미안→(말∨행동), ~말∧~행동 ∴ ~미안 타당 / ㄴ 책임→정직, ~정직→~신뢰 ∴ 책임→신뢰 → 정말 부당하므로 “타당하지 않다”는 평가가 옳음 / ㄷ 철수∨짱구, 철수 ∴ ~짱구는 부당인데 “타당하다”고 했으니 틀림) — 기말 기출</p>
+<p>[9] 자스민: 오직 밥을 싫어하지 않아야만 한국인 → 한국인→~싫어함. 자스민은 한국인 ∴ 싫어하지 않음 → <b>타당</b></p>
+<p>[9] 달의 치즈: ‘비가 안 와야만 치즈’ → 치즈→~비. ~비 ∴ 치즈는 후건을 긍정한 것 → <b>⑤ 아니다. p→q가 참이라고 q→p가 참인 건 아니다</b></p>
+<p>[9] 배타적일 때만 타당한 것: <b>① ㄱ</b> (오세훈 또는 박영선, 오세훈 당선 ∴ 박영선 낙선)</p>
+<p>[9] p.48 가: 1) 타당 · 2) 성적은 장학금의 필요조건(장학금→성적), 장학금 못 받음 ∴ 성적 못 받음 → <b>부당</b> · 3) 오직 수강해야만 논리적 사고(논리→수강), 논리 못함 ∴ 수강 안 함 → <b>부당</b> · 4) 침묵→말, 말→앎 ∴ 앎→침묵 → <b>부당</b> · 5) ~자기∨~타인, 타인 ∴ ~자기 → <b>타당</b></p>
+<p>[9] p.49 나 타당하지 않은 것: ④(유리→80%, 유리→슬픔 ∴ 80%→슬픔)와 ⑤(존 레논, 후건긍정) 둘 다 부당. 다: <b>① (가)·(나) 모두 타당하지 않다</b></p>
+<p>[10]가 고양이: 오직 고양이가 말할 때만 꽃(꽃→말), ~꽃 ∴ ~말 → 부당 → <b>⑤ 타당하지도 건전하지도 않지만 결론은 받아들일 수 있다</b></p>
+<p>[10]나 반드시 참: <b>⑤ UN</b> (평화∨전쟁, 평화→불필요, 전쟁→불필요 ∴ 불필요: 딜레마, 타당). 다 올바른 비판: <b>③ ㄱ, ㄷ</b> (타당하니 ㄴ은 틀림, 전제를 공격하는 ㄱ·ㄷ이 맞음)</p>
+<p>[10]라 치킨: <b>④ 화, 목, 금</b> · 마 여행: <b>④ 독일, 영국, 스위스, 스페인</b> · 바 통합안: <b>③ ㄱ, ㄷ</b></p>
+<p>범인 문제(10/7): 갈색→안경, 갈색→~안경 → <b>갈색은 거짓</b>. 그래서 키가 크고(갈색∨키), 안경을 쓴다(~안경→~키의 대우) → <b>② 키가 크고 안경을 쓴다</b>. ★ p→q와 p→~q가 같이 참이면 p는 거짓.</p>
+<p>민우(10/7): 논리학 통과→인성면접→AI 합격 → <b>④ AI 역량 검사에 합격했다</b></p>
+</div></details>
+<details class="q"><summary>참고: 추론 규칙 절 (서술 문제는 안 나옴 — 결론만 판단)</summary><div class="a">
+<p>규찬 결석→(규만∧규식 결석), 규찬 결석 ∴ 규만 결석 → 타당 · 오직 규찬이 결석해야만 규만이나 규식 결석 ((규만∨규식)→규찬), 규찬 안 함 ∴ 규만 안 함 → 타당</p>
+<p>제갈량 → <b>화공계</b> · 타키온 → <b>자연 상태 입자가 아니다</b> · 갑수/을수 → <b>갑수</b> · 병수/정수 → <b>병수, 회칼</b> · 무수/기수 → <b>무수, 밧줄, 앞산</b> · 선수 참석 → <b>④ 축구·테니스·배구 모두 참석</b></p>
+</div></details>
+<h3>꼭 알아둘 논리적 동치</h3>
+<div class="tbl"><table class="tt">
+<tr><td style="text-align:left">드모르간</td><td>~(p∨q) ≡ ~p∧~q</td><td>~(p∧q) ≡ ~p∨~q</td></tr>
+<tr><td style="text-align:left">교환</td><td>p∨q ≡ q∨p</td><td>p∧q ≡ q∧p</td></tr>
+<tr><td style="text-align:left">이중부정</td><td colspan="2">~~p ≡ p</td></tr>
+<tr><td style="text-align:left">대우</td><td colspan="2">p→q ≡ ~q→~p</td></tr>
+<tr><td style="text-align:left">조건문 바꿔쓰기</td><td colspan="2">p→q ≡ ~p∨q ≡ ~(p∧~q)</td></tr>
+<tr><td style="text-align:left">조건문의 부정</td><td colspan="2">~(p→q) ≡ p∧~q</td></tr>
+</table></div>
+<p class="easy">역(q→p)과 이(~p→~q)는 원래 조건문과 동치가 <b>아니다</b>. 대우만 동치.</p>
+</section>
+
+<!-- ============================== 15 ============================== -->
+<section id="s15">
+<h2><span class="n">15</span>정언명제</h2>
+<div class="tbl"><table>
+  <tr><th></th><th>긍정</th><th>부정</th><th>이렇게 이해</th></tr>
+  <tr><th>전칭</th><td>모든 F는 G이다</td><td>모든 F는 G가 아니다</td><td><b>조건문</b> (누구든 F라면 G이다)</td></tr>
+  <tr><th>특칭</th><td>어떤 F는 G이다</td><td>어떤 F는 G가 아니다</td><td><b>연언</b> (F이면서 G인 것이 <b>있다</b>)</td></tr>
+  <tr><th>단칭</th><td>a는 F이다</td><td>a는 F가 아니다</td><td>특정 대상 (= a와 동일한 모든 것은 F다)</td></tr>
+</table></div>
+<h3>같은 뜻인 표현들</h3>
+<div class="tbl"><table>
+<tr><th style="width:18%">전칭긍정</th><td>모든 경북대생은 똑똑하다 = 경북대생은 (모두) 똑똑하다 = <b>똑똑하지 않은 모든 사람은 경북대생이 아니다</b>(대우) ≠ 모든 똑똑한 사람은 경북대생이다</td></tr>
+<tr><th>전칭부정</th><td>모든 경북대생은 똑똑하지 않다 = <b>어떤 경북대생도</b> 똑똑하지 않다 = 경북대생이면서 똑똑한 사람은 <b>없다</b> = 모든 똑똑한 사람은 경북대생이 아니다 (주어·술어 맞바꿔도 OK)</td></tr>
+<tr><th>특칭긍정</th><td>어떤 경북대생은 똑똑하다 = 몇몇 경북대생은 똑똑하다 = 똑똑한 경북대생이 <b>있다</b> = 어떤 똑똑한 사람은 경북대생이다 (맞바꿔도 OK)</td></tr>
+<tr><th>특칭부정</th><td>어떤 경북대생은 똑똑하지 않다 = 똑똑하지 않은 경북대생이 있다 = <b>모든 경북대생이 똑똑한 것은 아니다</b> = 어떤 똑똑하지 않은 사람은 경북대생이다 (≠ 어떤 똑똑한 사람은 경북대생이 아니다)</td></tr>
+</table></div>
+<div class="box warn"><span class="bt">헷갈리는 3가지</span>
+<ul>
+<li>“어떤 동물<b>은</b> 물속에 살지 않는다” = 특칭부정 / “어떤 동물<b>도</b> 물속에 살지 않는다” = <b>전칭부정</b></li>
+<li>“<b>모든 ~가 ~인 것은 아니다</b>” = 특칭부정 (전칭으로 착각 주의!)</li>
+<li>“어떤 F는 G” 는 F가 한 개만 있어도 참이고, F 전부가 G여도 참. “일부만”이라는 뜻이 아니다.</li>
+</ul></div>
+<h3>일상어 → 표준형식 바꾸는 규칙</h3>
+<div class="tbl"><table>
+<tr><th style="width:36%">규칙</th><th>예</th></tr>
+<tr><td><b>오직 ~만이 / ~만이</b> → 주어·술어 위치를 바꾼다</td><td>오직 경북대생만이 똑똑하다 → 모든 똑똑한 사람은 경북대생이다</td></tr>
+<tr><td>항상, 언제든, ~할 때마다 → ‘시간/때’</td><td>그가 장에 갈 때마다 비가 왔다 → 그가 장에 가는 모든 때는 비가 온 때다</td></tr>
+<tr><td>어디든, 어느 곳에서도 → ‘장소/곳’</td><td>공공장소에서는 어디서든 금연 → 모든 공공장소는 금연해야 하는 곳이다</td></tr>
+<tr><td>누구든, 무엇이든 → ‘모든 사람/것’</td><td>누구든 노력하는 자가 성공한다 → 노력하는 모든 사람은 성공할 수 있는 사람이다</td></tr>
+<tr><td><b>유일한</b> → 전칭</td><td>이 호수의 유일한 어종은 붕어 → 이 호수에 사는 모든 어종은 붕어다</td></tr>
+<tr><td>단칭 → “~와 동일한 모든”</td><td>나에게는 신성이 있다 → 나와 같은 모든 사람은 신성이 있는 존재다</td></tr>
+<tr><td>문맥에 따라: 각각의 → 전칭, 많은/몇몇 → 특칭, 조건문 속 ‘어떤’ → 전칭</td><td>각각의 물고기는 물속에 산다 → 모든 · 많은 법률은 사문화됐다 → 어떤 · 그 수족관에 상어가 있다 → 어떤 상어는 그 수족관에 있다</td></tr>
+</table></div>
+<details class="q"><summary>연습: 표준형식으로 (강의자료 58, 61쪽)</summary><div class="a">
+<ol>
+<li>물고기는 포유동물이 아니다 → 모든 물고기는 포유동물이 아니다</li>
+<li>사자가 울부짖는다 → 어떤 사자는 울부짖는다</li>
+<li>모든 수감자가 다 난폭한 것은 아니다 → <b>어떤 수감자는 난폭하지 않다</b></li>
+<li>책을 많이 읽는 사람만이 사고력이 풍부해진다 → <b>사고력이 풍부한 모든 사람은 책을 많이 읽는 사람이다</b></li>
+<li>만약 어떤 동물이 포유류라면 새끼에게 젖을 먹인다 → 모든 포유류는 새끼에게 젖을 먹인다</li>
+<li>이 계곡에 사는 유일한 동물은 지네다 → 이 계곡에 사는 모든 동물은 지네다</li>
+<li>단 한 사람도 보이지 않았다 → 모든 사람은 보이지 않았다 (전칭부정)</li>
+</ol>
+<p>[11]가: 모든 대학생이 다 대학생다운 것은 아니다 → 어떤 대학생은 대학생다운 학생이 아니다 · 이번 전투의 유일한 생존자는 김 이병 → 이번 전투에서 살아남은 모든 생존자는 김 이병이다</p>
+<p>[11]나 다른 하나: <b>③ 대화형 AI 개발자 중 일부는 한국인이다</b> (특칭. ① ‘만이’, ② 모두, ④ 한국인은 밥심, ⑤ 야구장에 간 학생은 없다 → 전칭)</p>
+</div></details>
+</section>
+
+<!-- ============================== 16 ============================== -->
+<section id="s16">
+<h2><span class="n">16</span>정언명제의 관계 (현대적 해석)</h2>
+<figure><svg class="dg" viewBox="0 0 520 260" role="img" aria-label="정언명제의 모순관계">
+<text class="mid mut" x="130" y="20" style="font-size:12px">전칭 (조건문으로 이해)</text><text class="mid mut" x="390" y="20" style="font-size:12px">특칭 (‘있다’ = 연언으로 이해)</text>
+<rect class="fill-paper" x="30" y="30" width="200" height="70" rx="10"/><text class="mid b" x="130" y="56">전칭긍정</text><text class="mid" x="130" y="78">모든 F는 G이다</text>
+<rect class="fill-paper" x="290" y="30" width="200" height="70" rx="10"/><text class="mid b" x="390" y="56">특칭긍정</text><text class="mid" x="390" y="78">어떤 F는 G이다</text>
+<rect class="fill-paper" x="30" y="170" width="200" height="70" rx="10"/><text class="mid b" x="130" y="196">전칭부정</text><text class="mid" x="130" y="218">모든 F는 G가 아니다</text>
+<rect class="fill-paper" x="290" y="170" width="200" height="70" rx="10"/><text class="mid b" x="390" y="196">특칭부정</text><text class="mid" x="390" y="218">어떤 F는 G가 아니다</text>
+<path class="st-acc" d="M230 100 L290 170 M290 100 L230 170" style="stroke-width:3"/>
+<text class="mid acc b" x="243" y="140">모</text><text class="mid acc b" x="277" y="140">순</text>
+<path class="st-mut" d="M232 65 L288 65" style="stroke-dasharray:4 4"/><text class="mid noc b" x="260" y="58" style="font-size:12px">함축✗</text>
+<path class="st-mut" d="M130 102 L130 168" style="stroke-dasharray:4 4"/><text class="noc b" x="138" y="140">반대 ✗</text>
+<path class="st-mut" d="M390 102 L390 168" style="stroke-dasharray:4 4"/><text class="noc b" x="398" y="140">관계 ✗</text>
+</svg><figcaption>현대 논리학: 대각선의 <b>모순관계만</b> 남는다. 전칭→특칭 함축 ✗, 전칭긍정·전칭부정의 반대관계 ✗.</figcaption></figure>
+<div class="box def"><b>모순쌍:</b> 전칭긍정 ↔ 특칭부정, 전칭부정 ↔ 특칭긍정.<br>
+→ <b>전칭을 부정하면 특칭</b>, <b>특칭을 부정하면 전칭</b>이 된다. 전칭긍정과 전칭부정은 서로의 부정이 <b>아니다</b>.</div>
+<ul>
+<li>“모든 치킨집은 양념통닭을 판다”의 부정 → 어떤 치킨집은 양념통닭을 팔지 <b>않는다</b>.</li>
+<li>“모든 취준생은 술을 즐기지 않는다”의 부정 → 어떤 취준생은 술을 <b>즐긴다</b>.</li>
+<li>“오직 대졸자만 유능하다”의 부정 → 모든 유능한 사람이 대졸자인 것은 아니다 → <b>대졸자가 아닌 유능한 사람이 있다</b>. (“유능하지 않은 대졸자가 있다”가 아님!)</li>
+</ul>
+<h3>왜 모순만 남나? — 전칭은 존재를 말하지 않는다</h3>
+<p>아리스토텔레스(전통적 입장)는 주어가 실제로 존재한다고 가정했다. 현대 논리학은 <b>전칭명제가 주어의 존재에 대해 아무것도 말하지 않는다</b>고 본다(가정적 관점). 전칭은 조건문인데, 조건문은 전건이 거짓이면 항상 참이기 때문이다.</p>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="A와 E가 동시에 참"><defs><clipPath id="v5-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v5-cG"><circle cx="195" cy="95" r="70"/></clipPath><mask id="v5-not-G"><rect x="0" y="0" width="310" height="190" fill="white"/><circle cx="195" cy="95" r="70" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><g clip-path="url(#v5-cF)"><g mask="url(#v5-not-G)"><rect x="0" y="0" width="310" height="190" fill="url(#hatch)"/></g></g><g clip-path="url(#v5-cG)"><g clip-path="url(#v5-cF)"><rect x="0" y="0" width="310" height="190" fill="url(#hatch)"/></g></g><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-lab" x="60" y="20">경북대생</text><text class="v-lab" x="250" y="20">똑똑한 사람</text></svg><figcaption>‘모든 경북대생은 똑똑하다’ + ‘모든 경북대생은 똑똑하지 않다’<br>→ 둘 다 참이려면 경북대생 원 전체가 비어야 함(경북대생이 없는 세계)</figcaption></figure></div>
+<div><ul>
+<li>경북대생이 아무도 없다면 “모든 경북대생은 똑똑하다”와 “모든 경북대생은 똑똑하지 않다”가 <b>둘 다 참</b> → 반대관계 ✗</li>
+<li>“모든 F는 G”가 참이어도 F가 없으면 “어떤 F는 G”는 거짓 → <b>전칭 → 특칭 함축 ✗</b> (그래서 “전칭 ∴ 특칭” 논증은 부당)</li>
+<li><b>특칭긍정이 참이어도 특칭부정의 참/거짓은 알 수 없다</b> (역도 같음). “어떤 경북대생은 똑똑하다” 하면 “나머지는 아니겠네” 싶지만 그건 뉘앙스일 뿐. ★ 교수님: “이건 기억하셔야 됩니다.”</li>
+<li>헷갈리면 <b>그림을 그린다</b>. 전칭은 “없다”(지움), 특칭은 “있다”(x)만 말한다.</li>
+</ul></div></div>
+<div class="box tip"><b>증명과 반박:</b> 전칭은 증명하려면 전수조사, 반박은 반례 하나. 특칭은 증명하려면 사례 하나, 반박하려면 전수조사.</div>
+<details class="q"><summary>정치가와 사기꾼 (지난 학기에 단어만 바꿔서 출제됨)</summary><div class="a">
+<p>ㄱ. “어떤 정치가도 사기꾼이 아니다”가 거짓이면 “몇 명의 정치가는 사기꾼이 아니다”도 거짓 → <span class="no">틀림</span> (어떤 정치가는 사기꾼이다가 참이 될 뿐, 특칭부정은 알 수 없음)<br>
+ㄴ. “일부 정치가는 사기꾼이다”가 참이면 “몇몇 사기꾼은 정치가이다”도 참 → <span class="ok">맞음</span> (특칭긍정은 맞바꿔도 같음)<br>
+ㄷ. “어떤 정치가도 사기꾼이 아니다”가 거짓이면 “모든 정치가는 사기꾼이 아니다”도 거짓 → <span class="ok">맞음</span> (같은 말)<br>
+ㄹ. “어떤 정치가는 사기꾼이 아니다”가 참이면 “몇몇 정치가는 사기꾼이다”는 거짓 → <span class="no">틀림</span> (알 수 없음)<br>
+ㅁ. “몇몇 정치가는 사기꾼이다”가 참이면 “사기꾼이 아닌 일부 사람은 비정치가이다”도 참 → <span class="no">틀림</span> (범주가 다름)</p>
+<p>정답: <b>③ ㄴ, ㄷ</b></p></div></details>
+<details class="q"><summary>연습: 부정인가? 같은 뜻인가? (강의자료 59~61쪽)</summary><div class="a">
+<p><b>한 문장이 다른 문장의 부정인가?</b> 1) 모든 도깨비는 뿔 / 도깨비가 모두 뿔이 달리지는 않았다 → <b>부정 O</b> · 2) 앎을 사랑하는 모든 사람은 즐긴다 / 즐기지 않는다 → <b>X</b>(전칭끼리) · 3) 몇몇 사람은 착하지 않다 / 모든 사람은 착하지 않다 → <b>X</b> · 4) 몇몇 생물체는 영원히 산다 / 그 말은 거짓이다 → <b>O</b> · 5) 게임이론 모르는 사회학자가 있다 / 대부분 사회학자는 안다 → <b>X</b> · 6) 몇몇 생물학자는 ~생각한다 / ~생각하는 생물학자는 없다 → <b>O</b></p>
+<p><b>같은 뜻인가?</b> 1) 어느 생물체도 영원히 못 산다 / 몇몇이 영원히 산다는 건 거짓 → <b>같음</b> · 2) 어느 원숭이도 생각 안 함 / 생각하는 어느 것도 원숭이가 아님 → <b>같음</b> · 3) 모든 좋은 정치인은 논리로 설득 / 몇몇 좋은 정치인은 설득 안 한다는 건 거짓 → <b>같음</b> · 4) 논리로 설득 안 하는 모든 정치인은 좋은 정치인이 아니다 / 몇몇 좋지 않은 정치인은 설득 안 한다 → <b>다름</b></p>
+<p>[10]다 동치가 아닌 묶음: <b>② ㄷ</b> (오직 대졸자만 유능하다는 건 사실이 아니다 = 대졸자 아닌 유능한 사람이 있다 ≠ 유능하지 않은 대졸자도 있다)</p>
+<p>[11]다 관계: 1) 동치 · 2) 동치 · 3) 모순 · 4) 동치 · 5) 동치 · 6) 모순 (요령: 대우나 맞바꾸기로 <b>주어를 맞춘 뒤</b> 비교)</p>
+<p>[11]라 타당성: 1) 타당 · 2) 타당(대우로 주어 맞추기) · 3) 부당 · 4) 타당(전칭긍정을 특칭부정이 부정) · 5) 부당(전칭긍정과 전칭부정은 모순이 아니라서 후건 부정이 안 됨) · 6) 부당 · 7) 부당(전건 부정) · 8) 타당</p>
+</div></details>
+</section>
+
+<!-- ============================== 17 ============================== -->
+<section id="s17">
+<h2><span class="n">17</span>벤다이어그램 <span class="tag hot">직접 그리기 출제</span></h2>
+<div class="box def">
+<b>빗금(지움)</b> = 그 영역에 <b>아무것도 없다</b>.<br>
+<b>x</b> = 그 영역에 <b>적어도 하나 있다</b>.<br>
+<b>흰 영역</b> = 있는지 없는지 <b>모른다</b> (있다는 뜻이 아님!).<br>
+<b>경계선 위의 x</b> = 두 영역 중 어느 한쪽에 있는데, 어느 쪽인지 모른다.</div>
+<p>요약: <b>전칭은 지우고(“없다”), 특칭은 x를 친다(“있다”).</b> 교수님: “전칭 두 개만 그릴 줄 알면 다 됩니다.”</p>
+<h3>기본 6가지</h3>
+<div class="grid3">
+<div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="전칭긍정"><defs><clipPath id="v1-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v1-cG"><circle cx="195" cy="95" r="70"/></clipPath><mask id="v1-not-G"><rect x="0" y="0" width="310" height="190" fill="white"/><circle cx="195" cy="95" r="70" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><g clip-path="url(#v1-cF)"><g mask="url(#v1-not-G)"><rect x="0" y="0" width="310" height="190" fill="url(#hatch)"/></g></g><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-lab" x="60" y="20">F</text><text class="v-lab" x="250" y="20">G</text></svg><figcaption><b>모든 F는 G이다</b><br>F인데 G 아닌 곳을 지운다</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="전칭부정"><defs><clipPath id="v2-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v2-cG"><circle cx="195" cy="95" r="70"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><g clip-path="url(#v2-cG)"><g clip-path="url(#v2-cF)"><rect x="0" y="0" width="310" height="190" fill="url(#hatch)"/></g></g><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-lab" x="60" y="20">F</text><text class="v-lab" x="250" y="20">G</text></svg><figcaption><b>모든 F는 G가 아니다</b><br>겹치는 곳을 지운다</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="특칭긍정"><defs><clipPath id="v3-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v3-cG"><circle cx="195" cy="95" r="70"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-x" x="155" y="101">x</text><text class="v-lab" x="60" y="20">F</text><text class="v-lab" x="250" y="20">G</text></svg><figcaption><b>어떤 F는 G이다</b><br>겹치는 곳에 x</figcaption></figure></div>
+<div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="특칭부정"><defs><clipPath id="v4-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v4-cG"><circle cx="195" cy="95" r="70"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-x" x="82" y="101">x</text><text class="v-lab" x="60" y="20">F</text><text class="v-lab" x="250" y="20">G</text></svg><figcaption><b>어떤 F는 G가 아니다</b><br>F인데 G 아닌 곳에 x</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 250 170" role="img" aria-label="단칭긍정"><rect class="v-bg" x="1" y="1" width="248" height="168" rx="10"/><circle class="v-c" cx="95" cy="88" r="62"/><text class="v-lab" x="95" y="18">G</text><text class="v-x" x="95" y="92">x</text><text class="v-xl" x="95" y="106">a</text></svg><figcaption><b>a는 G이다</b><br>원 안에 x, 아래에 이름</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 250 170" role="img" aria-label="단칭부정"><rect class="v-bg" x="1" y="1" width="248" height="168" rx="10"/><circle class="v-c" cx="95" cy="88" r="62"/><text class="v-lab" x="95" y="18">G</text><text class="v-x" x="200" y="92">x</text><text class="v-xl" x="200" y="106">a</text></svg><figcaption><b>a는 G가 아니다</b><br>원 밖에 x, 아래에 이름</figcaption></figure></div>
+</div>
+<p class="easy">그림으로 보면 모순관계가 바로 보인다: 전칭긍정이 “없다”고 지운 자리(F만)에 특칭부정은 “있다”고 x를 친다.</p>
+
+<h3>세 원 — 영역 번호 (수업과 같은 배치)</h3>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="세 원의 영역 번호"><defs><clipPath id="v6-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v6-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v6-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">F (첫째 원)</text><text class="v-lab" x="52" y="262">G</text><text class="v-lab" x="248" y="262">H</text></svg><figcaption>1=F만 · 2=F∩G · 3=셋 다 · 4=F∩H · 5=G만 · 6=G∩H · 7=H만</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="경계선 위의 x"><defs><clipPath id="v7-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v7-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v7-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="169">x</text><text class="v-lab" x="150" y="20">F</text><text class="v-lab" x="52" y="262">G</text><text class="v-lab" x="248" y="262">H</text></svg><figcaption>“어떤 G는 H이다” → 3일지 6일지 모르면 <b>3과 6의 경계선 위</b>에 x</figcaption></figure></div></div>
+
+<h3>타당성 검증 순서</h3>
+<ol class="steps">
+  <li><b>결론부터 찾는다</b> (결론이 맨 앞에 있을 수도 있다). 단어 3개 → 원 3개, 이름을 쓴다.</li>
+  <li>전제를 <b>한 그림</b>에 그린다. <b>전칭(지우기)을 먼저</b>, 특칭(x)은 나중에.</li>
+  <li>특칭 x를 둘 곳이 두 칸인데 한 칸이 이미 지워졌으면 남은 칸에. 둘 다 열려 있으면 <b>경계선 위</b>에.</li>
+  <li><b>결론은 따로</b> 그린다.</li>
+  <li>결론 그림의 내용이 전제 그림에 <b>이미 들어 있으면 타당</b>, 아니면 부당. (결론을 맞추려고 전제 그림에 새로 그려 넣으면 안 됨)</li>
+</ol>
+<div class="box tip">원리: 타당한 연역논증은 결론이 이미 전제에 포함되어 있다. 전제 그림이 결론보다 더 많은 정보를 가져도 타당하다.</div>
+
+<h3>예제 1 · 타당 — 전칭+전칭+전칭</h3>
+<div class="arg"><div>모든 고래는 포유류이다.</div><div>모든 포유류는 어미젖을 먹는다.</div><div class="c">따라서 모든 고래는 어미젖을 먹는다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v8-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v8-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v8-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v8-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v8-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v8-not-FH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v8-not-H"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v8-cF)"><g mask="url(#v8-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v8-cH)"><g clip-path="url(#v8-cF)"><g mask="url(#v8-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v8-cG)"><g clip-path="url(#v8-cF)"><g mask="url(#v8-not-H)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v8-cG)"><g mask="url(#v8-not-FH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">고래</text><text class="v-lab" x="52" y="262">포유류</text><text class="v-lab" x="248" y="262">어미젖 먹음</text></svg><figcaption>전제: 1·4 지움(P1) + 2·5 지움(P2)</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v9-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v9-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v9-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v9-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v9-not-H"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v9-cF)"><g mask="url(#v9-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch-acc)"/></g></g><g clip-path="url(#v9-cG)"><g clip-path="url(#v9-cF)"><g mask="url(#v9-not-H)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch-acc)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">고래</text><text class="v-lab" x="52" y="262">포유류</text><text class="v-lab" x="248" y="262">어미젖 먹음</text></svg><figcaption>결론: 1·2가 비어야 함 → 이미 비어 있음</figcaption></figure></div></div>
+<p>결론이 지우라는 1·2가 전제 그림에서 이미 지워져 있다 → <span class="ok">타당</span>. (몰티즈→개→포유류 예제도 똑같은 모양)</p>
+
+<h3>예제 2 · 타당 — x가 한 칸으로 확정되는 경우</h3>
+<div class="arg"><div>모든 고래는 포유류이다.</div><div>어떤 고래는 지느러미가 달렸다.</div><div class="c">따라서 어떤 포유류는 지느러미가 달렸다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v10-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v10-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v10-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v10-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v10-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v10-cF)"><g mask="url(#v10-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v10-cH)"><g clip-path="url(#v10-cF)"><g mask="url(#v10-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="163">x</text><text class="v-lab" x="150" y="20">고래</text><text class="v-lab" x="52" y="262">포유류</text><text class="v-lab" x="248" y="262">지느러미</text></svg><figcaption>전제: 1·4 지움 → 고래∩지느러미(3,4) 중 3에만 x</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v11-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v11-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v11-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="169">x</text><text class="v-lab" x="150" y="20">고래</text><text class="v-lab" x="52" y="262">포유류</text><text class="v-lab" x="248" y="262">지느러미</text></svg><figcaption>결론: 포유류∩지느러미 = 3 또는 6</figcaption></figure></div></div>
+<p>전제는 “3에 있다”, 결론은 “3 또는 6에 있다”. 3에 있으면 당연히 3 또는 6에 있다 (p ∴ p∨q) → <span class="ok">타당</span>.</p>
+
+<h3>예제 3 · 부당 — 경계 x를 마음대로 옮기면 안 됨</h3>
+<div class="arg"><div>모든 고래는 포유류이다.</div><div>어떤 포유류는 날개가 달렸다.</div><div class="c">따라서 어떤 고래는 날개가 달렸다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v12-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v12-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v12-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v12-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v12-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v12-cF)"><g mask="url(#v12-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v12-cH)"><g clip-path="url(#v12-cF)"><g mask="url(#v12-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="169">x</text><text class="v-lab" x="150" y="20">고래</text><text class="v-lab" x="52" y="262">포유류</text><text class="v-lab" x="248" y="262">날개</text></svg><figcaption>전제: 1·4 지움, x는 3/6 경계(어디인지 모름)</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v13-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v13-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v13-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="168.7" y="136.7">x</text><text class="v-lab" x="150" y="20">고래</text><text class="v-lab" x="52" y="262">포유류</text><text class="v-lab" x="248" y="262">날개</text></svg><figcaption>결론: 고래∩날개 = 3 또는 4</figcaption></figure></div></div>
+<p>전제의 x는 3일 수도 6일 수도 있다. 6에 있다면 전제는 참인데 결론(3 또는 4)은 거짓 → <span class="no">부당</span>.</p>
+
+<h3>예제 4 · 타당 — 단칭 (원 2개면 충분)</h3>
+<div class="arg"><div>모든 20대 남성은 온라인 게임을 즐긴다.</div><div>철수는 20대 남성이다.</div><div class="c">따라서 철수는 온라인 게임을 즐긴다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="벤다이어그램"><defs><clipPath id="v14-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v14-cG"><circle cx="195" cy="95" r="70"/></clipPath><mask id="v14-not-G"><rect x="0" y="0" width="310" height="190" fill="white"/><circle cx="195" cy="95" r="70" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><g clip-path="url(#v14-cF)"><g mask="url(#v14-not-G)"><rect x="0" y="0" width="310" height="190" fill="url(#hatch)"/></g></g><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-x" x="155" y="101">x</text><text class="v-xl" x="155" y="114">철수</text><text class="v-lab" x="60" y="20">20대 남성</text><text class="v-lab" x="250" y="20">온라인 게임</text></svg><figcaption>전제: 1 지움 → 철수는 2에</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="벤다이어그램"><defs><clipPath id="v15-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v15-cG"><circle cx="195" cy="95" r="70"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-x" x="155" y="101">x</text><text class="v-xl" x="155" y="114">철수</text><text class="v-lab" x="60" y="20">20대 남성</text><text class="v-lab" x="250" y="20">온라인 게임</text></svg><figcaption>결론: 철수는 온라인 게임 원 안(2)</figcaption></figure></div></div>
+<p>철수는 원래 1/2 경계지만 1이 지워졌으니 2. 결론의 철수도 같은 철수 → <span class="ok">타당</span>. (소크라테스 예제도 같은 모양)</p>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="벤다이어그램"><defs><clipPath id="v22-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v22-cG"><circle cx="195" cy="95" r="70"/></clipPath><mask id="v22-not-G"><rect x="0" y="0" width="310" height="190" fill="white"/><circle cx="195" cy="95" r="70" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><g clip-path="url(#v22-cF)"><g mask="url(#v22-not-G)"><rect x="0" y="0" width="310" height="190" fill="url(#hatch)"/></g></g><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-x" x="155" y="101">x</text><text class="v-xl" x="155" y="114">소크라테스</text><text class="v-lab" x="60" y="20">사람</text><text class="v-lab" x="250" y="20">죽는 것</text></svg><figcaption>전제: 1 지움 → 소크라테스는 2에</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 310 190" role="img" aria-label="벤다이어그램"><defs><clipPath id="v23-cF"><circle cx="115" cy="95" r="70"/></clipPath><clipPath id="v23-cG"><circle cx="195" cy="95" r="70"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="308" height="188" rx="10"/><circle class="v-c" cx="115" cy="95" r="70"/><circle class="v-c" cx="195" cy="95" r="70"/><text class="v-x" x="155" y="101">x</text><text class="v-xl" x="155" y="114">소크라테스</text><text class="v-lab" x="60" y="20">사람</text><text class="v-lab" x="250" y="20">죽는 것</text></svg><figcaption>결론: 소크라테스는 ‘죽는 것’ 원 안</figcaption></figure></div></div>
+
+<h3>예제 5 · 타당 — 경북대생 / 똑똑 / 비</h3>
+<div class="arg"><div>어떤 경북대생은 똑똑하다.</div><div>모든 똑똑한 사람은 비 오는 날을 좋아한다.</div><div class="c">따라서 어떤 경북대생은 비 오는 날을 좋아한다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v16-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v16-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v16-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v16-not-FH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v16-not-H"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v16-cG)"><g clip-path="url(#v16-cF)"><g mask="url(#v16-not-H)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v16-cG)"><g mask="url(#v16-not-FH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="163">x</text><text class="v-lab" x="150" y="20">경북대생</text><text class="v-lab" x="52" y="262">똑똑한 사람</text><text class="v-lab" x="248" y="262">비 오는 날 좋아함</text></svg><figcaption>전제: 2·5 지움 → 경북대생∩똑똑(2,3) 중 3에 x</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v17-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v17-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v17-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="168.7" y="136.7">x</text><text class="v-lab" x="150" y="20">경북대생</text><text class="v-lab" x="52" y="262">똑똑한 사람</text><text class="v-lab" x="248" y="262">비 오는 날 좋아함</text></svg><figcaption>결론: 경북대생∩비 = 3 또는 4</figcaption></figure></div></div>
+<p>전칭부터: 똑똑한데 비를 안 좋아하는 2·5를 지운다. 그다음 특칭 x는 2/3 중 3. 결론은 3 또는 4 → <span class="ok">타당</span>.</p>
+
+<h3>예제 6 · 부당 — 와인 / 탄산음료 / 주류</h3>
+<div class="arg"><div>모든 와인은 탄산음료이다.</div><div>모든 탄산음료는 주류가 아니다.</div><div class="c">따라서 모든 주류는 와인이다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v18-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v18-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v18-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v18-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v18-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v18-not-F"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v18-cF)"><g mask="url(#v18-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v18-cH)"><g clip-path="url(#v18-cF)"><g mask="url(#v18-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v18-cH)"><g clip-path="url(#v18-cG)"><g clip-path="url(#v18-cF)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v18-cH)"><g clip-path="url(#v18-cG)"><g mask="url(#v18-not-F)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">와인</text><text class="v-lab" x="52" y="262">탄산음료</text><text class="v-lab" x="248" y="262">주류</text></svg><figcaption>전제: 1·4 지움 + 3·6 지움</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v19-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v19-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v19-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v19-not-FG"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v19-not-F"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v19-cH)"><g clip-path="url(#v19-cG)"><g mask="url(#v19-not-F)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch-acc)"/></g></g></g><g clip-path="url(#v19-cH)"><g mask="url(#v19-not-FG)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch-acc)"/></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">와인</text><text class="v-lab" x="52" y="262">탄산음료</text><text class="v-lab" x="248" y="262">주류</text></svg><figcaption>결론: 6·7이 비어야 함 → 7은 안 지워짐</figcaption></figure></div></div>
+<p>결론은 6·7을 지워야 하는데 전제는 7을 지우지 않았다 → <span class="no">부당</span>. (전제에서 나오는 건 “모든 와인은 주류가 아니다”뿐)</p>
+
+<h3>예제 7 · 부당 — 경북대생 / 중딩 / 싸움</h3>
+<div class="arg"><div>모든 경북대생은 중딩이 아니다.</div><div>어떤 경북대생은 싸움을 잘한다.</div><div class="c">따라서 어떤 중딩은 싸움을 잘한다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v20-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v20-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v20-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v20-not-H"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v20-cG)"><g clip-path="url(#v20-cF)"><g mask="url(#v20-not-H)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v20-cH)"><g clip-path="url(#v20-cG)"><g clip-path="url(#v20-cF)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="194" y="138">x</text><text class="v-lab" x="150" y="20">경북대생</text><text class="v-lab" x="52" y="262">중딩</text><text class="v-lab" x="248" y="262">싸움 잘함</text></svg><figcaption>전제: 2·3 지움 → 경북대생∩싸움(3,4) 중 4에 x</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v21-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v21-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v21-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="169">x</text><text class="v-lab" x="150" y="20">경북대생</text><text class="v-lab" x="52" y="262">중딩</text><text class="v-lab" x="248" y="262">싸움 잘함</text></svg><figcaption>결론: 중딩∩싸움 = 3 또는 6</figcaption></figure></div></div>
+<p>전제의 x는 4에 있다. 결론은 3 또는 6을 요구 → <span class="no">부당</span>.</p>
+
+<h3>예제 8 · 부당 — 논리적 사고 / 비판적 / 예민</h3>
+<div class="arg"><div>논리적 사고를 할 수 있는 모든 사람은 비판적이다.</div><div>비판적인 어떤 사람은 예민한 사람이다.</div><div class="c">따라서 예민한 어떤 사람은 논리적 사고를 할 수 있다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v24-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v24-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v24-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v24-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v24-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v24-cF)"><g mask="url(#v24-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v24-cH)"><g clip-path="url(#v24-cF)"><g mask="url(#v24-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="169">x</text><text class="v-lab" x="150" y="20">논리적 사고</text><text class="v-lab" x="52" y="262">비판적</text><text class="v-lab" x="248" y="262">예민함</text></svg><figcaption>전제: 1·4 지움, x는 3/6 경계</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v25-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v25-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v25-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="168.7" y="136.7">x</text><text class="v-lab" x="150" y="20">논리적 사고</text><text class="v-lab" x="52" y="262">비판적</text><text class="v-lab" x="248" y="262">예민함</text></svg><figcaption>결론: 예민∩논리 = 3 또는 4</figcaption></figure></div></div>
+<p>전제의 x는 3 또는 6, 결론은 3 또는 4 → x가 6에 있으면 결론이 거짓 → <span class="no">부당</span>.</p>
+
+<h3>예제 9 · 부당 — 전칭 두 개로는 특칭 결론이 안 나온다 (결론이 첫 문장!)</h3>
+<p class="muted">“사회 취약 계층으로 분류된 사람들 중 일부는 의료보험 혜택을 받지 못하는데, 그 이유는 모든 불법 노동자는 의료보험 혜택을 받지 못하며, 사회 취약 계층으로 분류되지 않은 모든 사람들은 불법 노동자가 아니기 때문이다.”</p>
+<div class="arg"><div>P1. 모든 불법 노동자는 의료보험 혜택을 받지 못한다.</div><div>P2. 사회 취약 계층이 아닌 모든 사람은 불법 노동자가 아니다. (대우: 모든 불법 노동자는 사회 취약 계층이다)</div><div class="c">C. 어떤 사회 취약 계층은 의료보험 혜택을 받지 못한다.</div></div>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v26-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v26-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v26-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v26-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v26-not-H"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v26-cF)"><g mask="url(#v26-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v26-cG)"><g clip-path="url(#v26-cF)"><g mask="url(#v26-not-H)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v26-cH)"><g clip-path="url(#v26-cG)"><g clip-path="url(#v26-cF)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">불법 노동자</text><text class="v-lab" x="52" y="262">의료보험 받음</text><text class="v-lab" x="248" y="262">사회 취약계층</text></svg><figcaption>전제: 2·3 지움(P1) + 1·2 지움(P2의 대우)</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v27-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v27-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v27-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="208.7" y="135.3">x</text><text class="v-lab" x="150" y="20">불법 노동자</text><text class="v-lab" x="52" y="262">의료보험 받음</text><text class="v-lab" x="248" y="262">사회 취약계층</text></svg><figcaption>결론: 취약계층∩보험 못 받음 = 4 또는 7에 x</figcaption></figure></div></div>
+<p>전칭은 지우기만 할 뿐 “있다”는 정보가 없다. 결론의 x(4 또는 7)를 보장할 수 없다 → <span class="no">부당</span>.</p>
+<div class="box warn"><b>전칭 + 전칭 ∴ 특칭 → 무조건 부당</b> (전칭은 존재 정보가 없음) · <b>특칭 + 특칭 ∴ 전칭 → 연역적으로 안 나옴</b> (아무리 x를 많이 쳐도 지워지는 칸이 없음 = 귀납일 뿐)<br>
+“전칭명제와 특칭명제 사이에는 건널 수 없는 간극이 있다.” 원리·법칙(전칭)에서 무엇이 존재하는지는 안 나오고, 데이터(특칭)를 아무리 모아도 법칙이 연역적으로 나오지 않는다.</div>
+
+<h3>직접 그려 보기 (강의자료 69~73쪽)</h3>
+<details class="q"><summary>체육대회 쿠폰 (자) — 철수는 진실, 영희는 거짓</summary><div class="a">
+<p>철수: 체육대회에 참석한 모든 학생은 커피 쿠폰을 받았다. 영희(거짓): 커피 쿠폰을 받은 사람 중 일부는 햄버거 쿠폰도 받았다 → 그 부정 = <b>모든 커피 쿠폰 받은 사람은 햄버거 쿠폰을 받지 않았다.</b></p>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v28-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v28-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v28-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v28-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v28-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v28-not-F"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v28-cF)"><g mask="url(#v28-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v28-cH)"><g clip-path="url(#v28-cF)"><g mask="url(#v28-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v28-cH)"><g clip-path="url(#v28-cG)"><g clip-path="url(#v28-cF)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v28-cH)"><g clip-path="url(#v28-cG)"><g mask="url(#v28-not-F)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">체육대회 참석 학생</text><text class="v-lab" x="52" y="262">커피 쿠폰</text><text class="v-lab" x="248" y="262">햄버거 쿠폰</text></svg><figcaption>전제: 1·4 지움(철수) + 3·6 지움(영희 말의 부정)</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v29-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v29-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v29-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v29-not-F"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v29-cH)"><g clip-path="url(#v29-cG)"><g clip-path="url(#v29-cF)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch-acc)"/></g></g></g><g clip-path="url(#v29-cH)"><g clip-path="url(#v29-cG)"><g mask="url(#v29-not-F)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch-acc)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-lab" x="150" y="20">체육대회 참석 학생</text><text class="v-lab" x="52" y="262">커피 쿠폰</text><text class="v-lab" x="248" y="262">햄버거 쿠폰</text></svg><figcaption>⑤ 햄버거∩커피(3,6)가 비어 있음 → 전제에 포함</figcaption></figure></div></div>
+<p>정답 <b>⑤ 햄버거 쿠폰을 받은 어떤 사람이 커피 쿠폰도 받았다는 것은 거짓이다.</b> (② “어떤 학생들은 커피 쿠폰을 받았다”는 전칭+전칭 → 특칭이라 X, ③ “모든 ~인 것은 아니다”는 특칭이라 X)</p>
+</div></details>
+<details class="q"><summary>별 / 빛 / 행성 (차-가)</summary><div class="a">
+<p>“빛을 갖지 않는 모든 것은 별이 아니다(= 모든 별은 빛을 갖는다). 모든 행성이 별인 것은 아니다(= 어떤 행성은 별이 아니다). 그러므로 몇몇 행성은 빛을 갖지 않는다.”</p>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v30-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v30-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v30-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v30-not-G"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/></mask><mask id="v30-not-GH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="110" cy="165" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v30-cF)"><g mask="url(#v30-not-GH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><g clip-path="url(#v30-cH)"><g clip-path="url(#v30-cF)"><g mask="url(#v30-not-G)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="170.8" y="201.4">x</text><text class="v-lab" x="150" y="20">별</text><text class="v-lab" x="52" y="262">빛을 가짐</text><text class="v-lab" x="248" y="262">행성</text></svg><figcaption>전제: 1·4 지움, ‘어떤 행성은 별이 아니다’ → 6/7 경계</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v31-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v31-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v31-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="208.7" y="135.3">x</text><text class="v-lab" x="150" y="20">별</text><text class="v-lab" x="52" y="262">빛을 가짐</text><text class="v-lab" x="248" y="262">행성</text></svg><figcaption>결론: 행성∩빛 없음 = 4 또는 7</figcaption></figure></div></div>
+<p>전제의 x는 6일 수도 있다(빛을 가진 행성). → <span class="no">부당</span>. 차의 정답은 <b>② (다)만</b>: “오직 생명체만 감정을 갖는다”(모든 감정 가진 것은 생명체) vs “모든 감정을 갖는 것이 생명체인 것은 아니다”(특칭부정) → 모순관계. (나)는 진리→사태, 현상학자→사태라 안 이어짐.</p>
+</div></details>
+<details class="q"><summary>초식 동물 / 사나운 동물 / 맹수 (타-④)</summary><div class="a">
+<p>“초식성을 지니는 동물 중엔 사나운 것도 있다. 모든 사나운 동물은 맹수다. 그러므로 어떤 맹수는 초식성 동물이 아니다.”</p>
+<div class="grid2"><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v32-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v32-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v32-cH"><circle cx="190" cy="165" r="68"/></clipPath><mask id="v32-not-FH"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="150" cy="95" r="68" fill="black"/><circle cx="190" cy="165" r="68" fill="black"/></mask><mask id="v32-not-H"><rect x="0" y="0" width="300" height="274" fill="white"/><circle cx="190" cy="165" r="68" fill="black"/></mask></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><g clip-path="url(#v32-cG)"><g clip-path="url(#v32-cF)"><g mask="url(#v32-not-H)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g></g><g clip-path="url(#v32-cG)"><g mask="url(#v32-not-FH)"><rect x="0" y="0" width="300" height="274" fill="url(#hatch)"/></g></g><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="150" y="163">x</text><text class="v-lab" x="150" y="20">초식 동물</text><text class="v-lab" x="52" y="262">사나운 동물</text><text class="v-lab" x="248" y="262">맹수</text></svg><figcaption>전제: 2·5 지움 → 초식∩사나움(2,3) 중 3에 x</figcaption></figure></div><div class="fig-card"><figure><svg class="venn" viewBox="0 0 300 274" role="img" aria-label="벤다이어그램"><defs><clipPath id="v33-cF"><circle cx="150" cy="95" r="68"/></clipPath><clipPath id="v33-cG"><circle cx="110" cy="165" r="68"/></clipPath><clipPath id="v33-cH"><circle cx="190" cy="165" r="68"/></clipPath></defs><rect class="v-bg" x="1" y="1" width="298" height="272" rx="10"/><circle class="v-c" cx="150" cy="95" r="68"/><circle class="v-c" cx="110" cy="165" r="68"/><circle class="v-c" cx="190" cy="165" r="68"/><text class="v-num" x="150" y="60">1</text><text class="v-num" x="106" y="122">2</text><text class="v-num" x="150" y="147">3</text><text class="v-num" x="194" y="122">4</text><text class="v-num" x="74" y="196">5</text><text class="v-num" x="150" y="207">6</text><text class="v-num" x="226" y="196">7</text><text class="v-x" x="170.8" y="201.4">x</text><text class="v-lab" x="150" y="20">초식 동물</text><text class="v-lab" x="52" y="262">사나운 동물</text><text class="v-lab" x="248" y="262">맹수</text></svg><figcaption>결론: 맹수∩초식 아님 = 6 또는 7</figcaption></figure></div></div>
+<p>전제는 3에 x, 결론은 6 또는 7 → <span class="no">부당</span>. (전제에서 나오는 건 “어떤 맹수는 초식성이다”) 타의 정답은 <b>②</b>: 어떤 배우는 외모가 뛰어나고 연기력이 형편없다 = “연기력이 형편없는 배우는 모두 외모가 뛰어나지 않다”는 거짓 (전칭부정의 부정 = 특칭긍정).</p>
+</div></details>
+<details class="q"><summary>칠성파 (라) — 동진은 진실, 서진은 거짓</summary><div class="a">
+<p>동진: 모든 칠성파 행동대원은 현장에 없었다. 서진(거짓): 현장에 없던 사람 중 범행 가담자가 있다 → 부정: <b>모든 범행 가담자는 현장에 있었다.</b></p>
+<p>칠성파 → ~현장, 범행 → 현장(대우: ~현장 → ~범행) ∴ 칠성파 → ~범행 = <b>④ 어떤 칠성파 행동대원도 범행에 가담하지 않았다.</b></p>
+</div></details>
+</section>
+
+<!-- ============================== 18 ============================== -->
+<section id="s18">
+<h2><span class="n">18</span>벤다이어그램 없이 빨리 푸는 법</h2>
+<p>교수님: “시험 시간에 일일이 그릴 수는 없다.” → 문장을 보고 바로 판단하는 요령.</p>
+<h3>① 전칭만 있으면 → 화살표로 바꿔서 이어지는지 본다</h3>
+<ul>
+<li>“모든 F는 G” = <span class="sym">F→G</span>, “모든 F는 G가 아니다” = <span class="sym">F→~G</span> (= G→~F)</li>
+<li>결론의 주어에서 출발해서 화살표가 술어까지 <b>꼬리를 물고</b> 이어지면 타당. 안 이어지면 <b>대우</b>를 한 번 써 본다.</li>
+<li>같은 곳에 도착만 하는 두 화살표(F→G, H→G)는 연결되지 않는다.</li>
+</ul>
+<div class="arg"><div>성공하는 모든 사람은 성실하다: 성공→성실 = <b>~성실→~성공</b> (대우)</div><div>성실한 모든 사람은 학생이 아니다: 성실→~학생 = <b>학생→~성실</b> (대우)</div><div class="c">∴ 학생→~성실→~성공 : 모든 학생은 성공하지 않는다 (타당)</div></div>
+<h3>② 특칭이 섞이면 → 그 대상을 ‘a’라고 잡는다</h3>
+<ol class="steps">
+<li>특칭 전제가 말하는 대상을 하나 잡아 <b>a</b>라 부른다. (“어떤 고래는 지느러미가 있다” → 지느러미가 있는 고래 a)</li>
+<li>a가 전칭 화살표의 <b>앞(전건)</b>에 해당하면 뒤의 성질을 얻는다. (a는 고래 → 고래→포유류 → a는 포유류)</li>
+<li>a가 결론의 성질을 다 가지면 타당. (a는 포유류이고 지느러미가 있음 → “어떤 포유류는 지느러미가 있다” 타당)</li>
+<li>a가 화살표의 <b>뒤(후건)</b>에만 해당하면 앞의 성질을 얻을 수 없다 → 부당. (비판적인 a → “논리적 사고→비판적”에서 a가 논리적이라는 건 안 나옴)</li>
+</ol>
+<div class="box warn"><b>특칭은 절대 화살표로 바꾸지 말 것.</b> “어떤 학생은 성실하지 않다” = 학생이면서 성실하지 않은 a가 <b>있다</b> (학생→~성실이 아님).<br>
+서로 다른 특칭 전제의 a와 b를 같은 대상이라고 합치면 안 된다.</div>
+<details class="q"><summary>연습: 모순 좋아하는 철학자 (10/14 슬라이드)</summary><div class="a">
+<p>“모순을 좋아하는 논리학자는 없다. 모든 철학자가 모순을 좋아하지 않는 것은 아니다. 그러므로 철학자 중에는 논리학자가 아닌 사람이 있다.”</p>
+<p>P1 = 모순→~논리학자. P2 = 어떤 철학자는 모순을 좋아한다 → 그 사람 a. a는 모순을 좋아하니 논리학자가 아니다. a는 철학자이고 논리학자가 아니다 → <span class="ok">타당</span>.</p>
+</div></details>
+<details class="q"><summary>연습: [12]가·바·사·아 (강의자료 69~72쪽)</summary><div class="a">
+<p><b>가</b> 타당한 것: <b>④ ㄴ, ㄹ, ㅂ</b> — ㄱ 고양이→~조류, 말→~조류 (같은 곳 도착 X) · ㄴ 예술가→호기심→~과학자 ∴ 과학자→~예술가(대우) O · ㄷ ~(수학∧물리) ∴ ~수학 X · ㄹ 다이어트→체중감소, ~체중 ∴ ~다이어트 O · ㅁ 후건긍정 X · ㅂ 진정제→위험→~슈퍼 O</p>
+<p><b>나</b> “학교에 안 나왔으면 PC방이나 노래방에 갔을 것”이 거짓 → 학교 안 나옴, PC방도 노래방도 안 감 → <b>④ 학교에 나왔으면 PC방에 안 갔다</b> (전건 F라 참)</p>
+<p><b>다</b> 핏자국 없음 → 자상 아님 → 용팔이 아님 → 치타가 범인 → 목 졸린 건 아님 → <b>④ 범인은 치타, 사망 방법은 알 수 없음</b></p>
+<p><b>마</b> 철수 “오직 한국당만 양심적이거나 유능” = 모든 (양심∨유능)은 한국당 → 영희의 부정: <b>④ 어떤 비-한국당 사람들은 양심적이거나 유능하다</b> (③ ‘이고’가 아님)</p>
+<p><b>바</b> 필연적으로 따라 나오지 않는 것: <b>② (가) 후건긍정, (마) 전건부정</b></p>
+<p><b>사</b> 부적절한 평가: <b>①</b> 곤충→다리6, 어떤 거미는 다리6 → a가 후건 쪽이라 “거미 중 곤충” 안 나옴</p>
+<p><b>아</b> 지혜→~용기, 용기→~두려움벗어남, 사랑→용기, 용기→~행복, <b>두려움벗어남→지혜</b>(“지혜로운 사람만이”) → <b>③ ㄱ, ㄴ</b> (ㄷ은 역이라 X)</p>
+</div></details>
+</section>
+
+<!-- ============================== 19 ============================== -->
+<section id="s19">
+<h2><span class="n">19</span>강의자료 연습문제 정답 모음</h2>
+<p class="muted">빠른 복습용. 풀이는 각 장의 연습 상자에 있다.</p>
+<div class="tbl"><table>
+<tr><th style="width:16%">자료</th><th>문항 → 정답</th></tr>
+<tr><td>[2] 6쪽</td><td>전제·결론 가능: ×○××○○○×○○ · 문장 3개/명제 2개</td></tr>
+<tr><td>[3] 7쪽</td><td>가 ④</td></tr>
+<tr><td>[4] 14~16쪽</td><td>가 ×○○× · 나 ④ · 라 ②③⑤ · 마 ①④</td></tr>
+<tr><td>[5] 19~21쪽</td><td>가 ②④⑤ · 나 ④ · 정의 종류: 설득·조작·사전·사전·계량 · 결함: 좁음·부정어·편향·순환</td></tr>
+<tr><td>[6] 25~28쪽</td><td>가 약정·사전·설득·설득 · 나 ④ · 다 ④ · 라 ⑤ · 연역/귀납 나 ④ · 다 참·참·거짓·거짓</td></tr>
+<tr><td>[7] 29~31쪽</td><td>가 ② · 나 ③④ · 타당성 1)~8) 귀납·타당비건전·타당건전·부당·타당건전·부당·타당건전·타당건전 · 일관성 1~8 일관·모순명제·모순명제·일관·일관·반대·모순·반대</td></tr>
+<tr><td>[8] 35~43쪽</td><td>가 ①③ · 연결사 가 ① · 라 수민 / 초신성 발생 안 함 · 마 ③ · 평가 가 ④ · 나 타부부부타타부타타타 · 다 ②</td></tr>
+<tr><td>[9] 44~51쪽</td><td>자스민 타당 · 달 치즈 ⑤ · 배타적 ① · 48쪽 가 타부부부타 · 49쪽 나 ④⑤ 부당 · 다 ① · 살인 갑수 / 병수·회칼 / 무수·밧줄·앞산 · 선수 ④</td></tr>
+<tr><td>[10] 52~60쪽</td><td>가 ⑤ · 나 ⑤ · 다 ③ · 라 ④ · 마 ④ · 바 ③ · 부정 판단 OXXOXO · 같은 뜻 OOOX · 동치 아닌 것 ②</td></tr>
+<tr><td>[11] 61~63쪽</td><td>나 ③ · 다 동치·동치·모순·동치·동치·모순 · 라 타타부타부부부타 · 마 ③ · 정치가/사기꾼 ③</td></tr>
+<tr><td>[12] 66~73쪽</td><td>벤: 고래①타당 ②타당 ③부당 · 철수 타당 · 몰티즈 타당 · 경북대/비 타당 · 와인 부당 · 중딩 부당 · 소크라테스 타당 · 논리/예민 부당 · 의료보험 부당<br>가 ④ · 나 ④ · 다 ④ · 라 ④ · 마 ④ · 바 ② · 사 ① · 아 ③ · 자 ⑤ · 차 ② · 타 ②</td></tr>
+</table></div>
+</section>
+
+<!-- ============================== 20 ============================== -->
+<section id="s20">
+<h2><span class="n">20</span>시험 직전 체크리스트</h2>
+<ul class="check">
+<li>논증의 정의를 쓸 수 있다 (“의도되었을 때”, 결론은 하나)</li>
+<li>표준형식: 결론 먼저 찾고 나머지는 P1, P2… / 원인이라고 안 쓰기 / 수사적 의문문은 평서문으로</li>
+<li>명제의 예외 두 개: 거짓말쟁이 문장, 수사적 의문문</li>
+<li>설명 vs 논증: 이미 동의한 사실의 원인 vs 아직 동의 안 한 주장의 근거</li>
+<li>내포 = 뜻, 외연 = 대상 / 내포 같으면 외연 같음, 역은 X / 반비례</li>
+<li>모호 = 경계 흐림(감소), 애매 = 뜻 2개 이상(제거) / 차–노랑</li>
+<li>정의 5종 수업 예문, 설득적 정의는 나쁨(중립성), 좋은 정의 8조건</li>
+<li>필연·모순·우연명제, 논리적 vs 법칙적 필연(영화 테스트), “~라고 생각한다”는 사실명제</li>
+<li>연역·귀납 정의 문장 그대로 / “일반→특수” 정의는 틀림 / 실제 참·거짓은 안 따짐</li>
+<li>타당·건전 정의 / 4가지 조합 / 부당 → 바로 비건전 / 귀납은 타당 X·건전 X</li>
+<li>모순(동시에 참 X, 거짓 X) vs 반대(동시에 참 X, 거짓 O) vs 일관(동시에 참 가능)</li>
+<li>진리표 ∧ TFFF, ∨ TTTF(포괄), → TFTT / 선언은 기본 포괄적</li>
+<li>“오직 q인 경우에만 p” = p→q / 필요조건·충분조건 / ~(p∧q) = ~p∨~q</li>
+<li>부당 형식: 전건 부정, 후건 긍정, p∨q·p ∴ ~q, 같은 곳 도착 화살표</li>
+<li>정언 4형식 / “모든 ~인 것은 아니다” = 특칭부정 / “어떤 ~도 ~않다” = 전칭부정 / “오직 A만 B” = 모든 B는 A</li>
+<li>모순쌍 A↔O, E↔I / 현대 해석: 전칭→특칭 X, 특칭긍정 참이어도 특칭부정은 모름</li>
+<li>벤다이어그램: 전칭 먼저 지우고, 특칭 x, 모르면 경계선, 결론은 따로, 포함되면 타당</li>
+<li>전칭+전칭 ∴ 특칭 → 부당 / 특칭은 화살표 금지, a로 잡기</li>
+<li>복수 선택은 개수 정확히!</li>
+</ul>
+</section>
+<footer>
+<p><a href="index.html">← 과목 목록으로 돌아가기</a></p>
+</footer>
+</main>
+</div>
+
+<script src="assets/common.js"></script>
+</body>
+</html>
